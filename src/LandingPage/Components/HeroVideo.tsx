@@ -1,28 +1,35 @@
-// import React, { useEffect, useState } from "react";
 import { useEffect, useState } from "react";
-type Props = {
-  srcMp4: string;
+
+type HeroVideoProps = {
+  mp4: string;
   poster: string;
   className?: string;
+  /** how long to wait before mounting video (ms) */
+  mountDelayMs?: number;
+  /** fade-in time (ms) */
+  fadeMs?: number;
 };
 
-export default function HeroVideo({ srcMp4, poster, className }: Props) {
-  const [loadVideo, setLoadVideo] = useState(false);
+export default function HeroVideo({
+  mp4,
+  poster,
+  className,
+  mountDelayMs = 120,
+  fadeMs = 650,
+}: HeroVideoProps) {
+  const [mounted, setMounted] = useState(false);
+  const [ready, setReady] = useState(false);
 
+  // 1) show poster instantly
+  // 2) mount video shortly after first paint
   useEffect(() => {
-    const id = window.requestIdleCallback
-      ? window.requestIdleCallback(() => setLoadVideo(true))
-      : window.setTimeout(() => setLoadVideo(true), 1200);
-
-    return () => {
-      if (typeof id === "number") window.clearTimeout(id);
-      else window.cancelIdleCallback?.(id as any);
-    };
-  }, []);
+    const id = window.setTimeout(() => setMounted(true), mountDelayMs);
+    return () => window.clearTimeout(id);
+  }, [mountDelayMs]);
 
   return (
-    <div className={["relative overflow-hidden", className].join(" ")}>
-      {/* Poster shows immediately (fast) */}
+    <div className={["absolute inset-0 overflow-hidden", className].join(" ")}>
+      {/* Poster = instant paint, keeps Lighthouse happy */}
       <img
         src={poster}
         alt=""
@@ -32,23 +39,29 @@ export default function HeroVideo({ srcMp4, poster, className }: Props) {
         decoding="async"
       />
 
-      {/* Video loads later */}
-      {loadVideo && (
+      {/* Video fades in when the browser can play */}
+      {mounted && (
         <video
-          className="absolute inset-0 h-full w-full object-cover"
+          className={[
+            "absolute inset-0 h-full w-full object-cover",
+            "transition-opacity ease-out",
+            ready ? "opacity-100" : "opacity-0",
+          ].join(" ")}
+          style={{ transitionDuration: `${fadeMs}ms` }}
           autoPlay
           muted
           loop
           playsInline
-          preload="none"
+          preload="metadata"
           poster={poster}
+          onCanPlay={() => setReady(true)}
         >
-          <source src={srcMp4} type="video/mp4" />
+          <source src={mp4} type="video/mp4" />
         </video>
       )}
 
-      {/* Optional: overlay for brand tint */}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-950/35 via-slate-950/10 to-slate-950/40" />
+      {/* Optional tint overlay to match your theme */}
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-950/35 via-slate-950/10 to-slate-950/45" />
     </div>
   );
 }

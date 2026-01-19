@@ -1,22 +1,22 @@
 // src/LandingPage/Components/Hero.tsx
-// import React from "react";
-import heroVideo from "../../assets/Hero.mp4";
+import HeroVideo from "./HeroVideo";
+
+// ✅ Use ONE video + ONE poster (remove duplicates)
+import heroPoster from "../../assets/hero-poster.webp";
+import heroMp4 from "../../assets/Hero.mp4";
 
 export default function Hero() {
   return (
     <section id="home" className="relative w-full overflow-hidden">
-      {/* VIDEO BACKGROUND */}
+      {/* VIDEO BACKGROUND (Poster first, video fades in) */}
       <div className="absolute inset-0 -z-10">
-        <video
-          className="h-full w-full object-cover"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-        >
-          <source src={heroVideo} type="video/mp4" />
-        </video>
+        <HeroVideo
+          mp4={heroMp4}
+          poster={heroPoster}
+          // tweak these if you want faster/slower feel
+          mountDelayMs={80}
+          fadeMs={550}
+        />
 
         {/* Cohesive overlay (navy -> blue) */}
         <div className="absolute inset-0 bg-slate-950/70" />
@@ -51,8 +51,8 @@ export default function Hero() {
             </h1>
 
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg">
-              We build fast, modern websites that generate leads—clean code, mobile-first
-              layouts, and technical SEO baked in from day one.
+              We build fast, modern websites that generate leads—clean code, mobile-first layouts,
+              and technical SEO baked in from day one.
             </p>
 
             <ul className="mt-6 space-y-3 text-sm text-white/85 sm:text-base">
@@ -87,18 +87,16 @@ export default function Hero() {
             </div>
 
             <div className="mt-6 flex flex-wrap gap-2 text-xs text-white/80">
-              {[
-                "Typical launch: 7–14 days",
-                "Mobile-first + SEO-ready",
-                "Built to generate leads",
-              ].map((chip) => (
-                <span
-                  key={chip}
-                  className="rounded-full bg-white/10 px-3 py-1 ring-1 ring-white/15 backdrop-blur"
-                >
-                  {chip}
-                </span>
-              ))}
+              {["Typical launch: 7–14 days", "Mobile-first + SEO-ready", "Built to generate leads"].map(
+                (chip) => (
+                  <span
+                    key={chip}
+                    className="rounded-full bg-white/10 px-3 py-1 ring-1 ring-white/15 backdrop-blur"
+                  >
+                    {chip}
+                  </span>
+                )
+              )}
             </div>
           </div>
 
@@ -117,9 +115,7 @@ export default function Hero() {
                   </span>
                 </div>
 
-                <h3 className="text-xl font-bold text-slate-900">
-                  Get a fast quote + plan
-                </h3>
+                <h3 className="text-xl font-bold text-slate-900">Get a fast quote + plan</h3>
                 <p className="mt-2 text-sm text-slate-600">
                   Tell us what you need. We’ll reply within 24 hours with a clear plan.
                 </p>
