@@ -1,8 +1,10 @@
 // src/LandingPage/Components/Hero.tsx
 import HeroVideo from "./HeroVideo";
 
-// ✅ Use ONE video + ONE poster (remove duplicates)
+// ✅ MUST exist exactly with this casing on disk:
 import heroPoster from "../../assets/hero-poster.webp";
+
+// ✅ Your actual file in assets is Hero.mp4 (capital H)
 import heroMp4 from "../../assets/Hero.mp4";
 
 export default function Hero() {
@@ -10,19 +12,13 @@ export default function Hero() {
     <section id="home" className="relative w-full overflow-hidden">
       {/* VIDEO BACKGROUND (Poster first, video fades in) */}
       <div className="absolute inset-0 -z-10">
-        <HeroVideo
-          mp4={heroMp4}
-          poster={heroPoster}
-          // tweak these if you want faster/slower feel
-          mountDelayMs={80}
-          fadeMs={550}
-        />
+        <HeroVideo mp4={heroMp4} poster={heroPoster} mountDelayMs={60} fadeMs={520} />
 
         {/* Cohesive overlay (navy -> blue) */}
         <div className="absolute inset-0 bg-slate-950/70" />
         <div className="absolute inset-0 bg-gradient-to-br from-blue-950/55 via-slate-950/35 to-blue-900/40" />
 
-        {/* subtle blur haze at bottom for readability */}
+        {/* subtle bottom readability haze */}
         <div className="absolute inset-x-0 bottom-0 h-[45%] bg-gradient-to-t from-slate-950/75 via-slate-950/25 to-transparent" />
 
         {/* tiny grain */}
@@ -46,8 +42,7 @@ export default function Hero() {
             </span>
 
             <h1 className="mt-6 text-5xl font-extrabold leading-[1.06] tracking-tight text-white sm:text-6xl lg:text-7xl">
-              Websites that{" "}
-              <span className="block text-blue-300">rank + convert</span>
+              Websites that <span className="block text-blue-300">rank + convert</span>
             </h1>
 
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg">
@@ -110,9 +105,7 @@ export default function Hero() {
                   <span className="h-3 w-3 rounded-full bg-red-400" />
                   <span className="h-3 w-3 rounded-full bg-yellow-400" />
                   <span className="h-3 w-3 rounded-full bg-green-400" />
-                  <span className="ml-auto text-xs font-semibold text-slate-500">
-                    Request a Quote
-                  </span>
+                  <span className="ml-auto text-xs font-semibold text-slate-500">Request a Quote</span>
                 </div>
 
                 <h3 className="text-xl font-bold text-slate-900">Get a fast quote + plan</h3>
