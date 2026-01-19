@@ -1,5 +1,5 @@
 // src/LandingPage/Components/Hero.tsx
-import React from "react";
+// import React from "react";
 import heroVideo from "../../assets/Hero.mp4";
 
 export default function Hero() {
