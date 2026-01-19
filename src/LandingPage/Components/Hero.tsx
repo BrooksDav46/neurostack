@@ -2,7 +2,7 @@
 import HeroVideo from "./HeroVideo";
 
 // ✅ MUST exist exactly with this casing on disk:
-import heroPoster from "../../assets/hero-poster.webp";
+import heroPoster from "../../assets/Hero-poster.webp";
 
 // ✅ Your actual file in assets is Hero.mp4 (capital H)
 import heroMp4 from "../../assets/Hero.mp4";
