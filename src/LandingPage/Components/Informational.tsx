@@ -1,6 +1,6 @@
 // src/LandingPage/Components/Informational.tsx
 // import React from "react";
-import bg from "../../assets/section_Image.png";
+import bg from "../../assets/Section_Image.png";
 
 export default function Informational() {
   const bullets = [
