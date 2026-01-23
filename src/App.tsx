@@ -1,22 +1,26 @@
 import type { JSX } from "react";
-import Hero from "./LandingPage/Components/Hero";
+import { Routes, Route } from "react-router-dom";
+
 import Navbar from "./LandingPage/Components/NavBar";
-// import Features from "./LandingPage/Components/Features";
-// import WhyUs from "./LandingPage/Components/WhyUs";
-// import Process from "./LandingPage/Components/Process";
-import Built from "./LandingPage/Components/Built";
+import ScrollToTop from "./ScrollToTop";
+
+// Home sections
+import Hero from "./LandingPage/Components/Hero";
+import GrowthSection from "./LandingPage/Components/GrowthSection";
 import Informational from "./LandingPage/Components/Informational";
+import Built from "./LandingPage/Components/Built";
 import ContactUs from "./LandingPage/Components/ContactUs";
 import Footer from "./LandingPage/Components/Footer";
-import GrowthSection from "./LandingPage/Components/GrowthSection";
 
+// Pages
+import About from "./About Page/Components/About";
+import Services from "./Services/Components/Services";
+import Finance from "./Finance/Components/Finance";
+import Contact from "./Contact Page/Components/Contact";
 
-
-export default function App(): JSX.Element {
+function HomePage(): JSX.Element {
   return (
     <div className="min-h-screen">
-      <Navbar />
-
       {/* HERO + GROWTH overlap wrapper */}
       <div className="relative">
         <Hero />
@@ -28,10 +32,30 @@ export default function App(): JSX.Element {
           <GrowthSection />
         </div>
       </div>
+
       <Informational />
       <Built />
       <ContactUs />
       <Footer />
+    </div>
+  );
+}
+
+export default function App(): JSX.Element {
+  return (
+    <div className="min-h-screen">
+      <Navbar />
+
+      {/* ✅ ALWAYS go to top when route changes */}
+      <ScrollToTop />
+
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/finance" element={<Finance />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
     </div>
   );
 }

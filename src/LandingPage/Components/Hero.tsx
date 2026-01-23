@@ -1,5 +1,6 @@
 // src/LandingPage/Components/Hero.tsx
 import React from "react";
+import { Link } from "react-router-dom";
 import HeroVideo from "./HeroVideo";
 import heroPoster from "../../assets/Hero-poster.webp";
 import heroMp4 from "../../assets/Hero.mp4";
@@ -7,21 +8,21 @@ import heroMp4 from "../../assets/Hero.mp4";
 function CtaBox({
   title,
   subtitle,
-  href,
+  to,
   icon,
   variant = "primary",
 }: {
   title: string;
   subtitle: string;
-  href: string;
+  to: string;
   icon?: React.ReactNode;
   variant?: "primary" | "secondary";
 }) {
   const isPrimary = variant === "primary";
 
   return (
-    <a
-      href={href}
+    <Link
+      to={to}
       className="
         group relative w-full sm:w-[290px]
         overflow-hidden rounded-2xl
@@ -81,7 +82,7 @@ function CtaBox({
           </div>
         </div>
       </div>
-    </a>
+    </Link>
   );
 }
 
@@ -114,29 +115,29 @@ export default function Hero() {
             El Paso Web Design & SEO
           </div>
 
-          {/* headline (✅ slightly smaller) */}
+          {/* headline */}
           <h1 className="mt-7 w-full max-w-[1400px] text-[clamp(2.7rem,5.8vw,6rem)] font-extrabold leading-[0.93] tracking-[-0.02em] text-white drop-shadow-[0_12px_40px_rgba(0,0,0,0.6)]">
             Web Development Company in El Paso Built to Drive Real Business
             Growth
           </h1>
 
-          {/* sub (✅ fixed max width — yours was 8730px) */}
+          {/* sub */}
           <p className="mt-6 max-w-[820px] text-sm leading-relaxed text-white/85 sm:text-base">
             We build high-performance websites with local SEO, lead generation,
             and conversion strategy — all designed to grow your business.
           </p>
 
-          {/* ctas */}
+          {/* ctas (✅ now routes) */}
           <div className="mt-10 flex w-full flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
             <CtaBox
-              href="#contact"
+              to="/contact"
               title="Get a Free Strategy Call"
               subtitle="Quick call → clear plan + next steps."
               icon={<span className="text-lg">⚡</span>}
               variant="primary"
             />
             <CtaBox
-              href="#features"
+              to="/services"
               title="See Work + Services"
               subtitle="Examples, packages, and what we build."
               icon={<span className="text-lg">🧩</span>}
