@@ -11,25 +11,29 @@ type Service = {
 const SERVICES: Service[] = [
   {
     title: "Web Systems",
-    blurb: "Fast, modern sites built like a product — clean UI, strong structure, built to scale.",
+    blurb:
+      "Fast, modern sites built like a product — clean UI, strong structure, built to scale.",
     bullets: ["React + Tailwind", "Mobile-first UX", "Speed + structure"],
     tag: "Build",
   },
   {
     title: "Local SEO Foundation",
-    blurb: "We build the on-page structure that helps you show up for nearby searches.",
+    blurb:
+      "We build the on-page structure that helps you show up for nearby searches.",
     bullets: ["Service + city pages", "Schema + headings", "Internal linking"],
     tag: "Rank",
   },
   {
     title: "Conversion Design",
-    blurb: "Design that turns visitors into leads — clarity, proof, and frictionless CTAs.",
+    blurb:
+      "Design that turns visitors into leads — clarity, proof, and frictionless CTAs.",
     bullets: ["Clear CTA flow", "Trust signals", "High-intent layouts"],
     tag: "Convert",
   },
   {
     title: "Automation + Tracking",
-    blurb: "Connect your site to your pipeline so you can follow every lead end-to-end.",
+    blurb:
+      "Connect your site to your pipeline so you can follow every lead end-to-end.",
     bullets: ["Lead routing", "CRM handoff", "Analytics events"],
     tag: "Systemize",
   },
@@ -41,7 +45,8 @@ const SERVICES: Service[] = [
   },
   {
     title: "Scalable Architecture",
-    blurb: "A site you can grow into — add pages, offers, and locations without breaking it.",
+    blurb:
+      "A site you can grow into — add pages, offers, and locations without breaking it.",
     bullets: ["Modular sections", "Reusable components", "Future-proof structure"],
     tag: "Scale",
   },
@@ -110,8 +115,7 @@ function ParallaxBlock({
     accent === "purple" ? "from-purple-500/25" : "from-sky-500/22";
   const accentB =
     accent === "purple" ? "to-sky-500/18" : "to-purple-500/18";
-  const dot =
-    accent === "purple" ? "bg-purple-300" : "bg-sky-300";
+  const dot = accent === "purple" ? "bg-purple-300" : "bg-sky-300";
 
   return (
     <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5">
@@ -199,7 +203,9 @@ function ParallaxBlock({
               >
                 Get a build plan
               </Link>
-              <span className="text-sm text-white/55">Tell us your service + area.</span>
+              <span className="text-sm text-white/55">
+                Tell us your service + area.
+              </span>
             </div>
           </div>
         </div>
@@ -235,10 +241,24 @@ export default function Services() {
             ))}
           </section>
 
+          {/* ✅ USE ParallaxBlock so TS doesn't fail the build */}
+          <ParallaxBlock
+            eyebrow="Our approach"
+            title="Local-first websites that rank and convert"
+            body="We build websites that help people in your area find you, trust you, and contact you. That means service + location structure, clean technical SEO, fast load times, and a conversion path that doesn’t waste attention."
+            bullets={[
+              "Service + city pages for local SEO",
+              "High-trust layouts that convert",
+              "Core Web Vitals performance focus",
+            ]}
+            accent="purple"
+          />
+
           <section className="rounded-2xl border border-white/10 bg-white/5 p-8 text-center">
             <h2 className="text-2xl font-semibold">Want a build plan?</h2>
             <p className="mt-2 text-white/70">
-              Tell us what you do and where you operate — we’ll map the fastest path to a site that performs.
+              Tell us what you do and where you operate — we’ll map the fastest
+              path to a site that performs.
             </p>
             <div className="mt-6">
               <Link
