@@ -1,5 +1,4 @@
 // src/LandingPage/Components/ContactUs.tsx
-// import React from "react";
 import { useForm, ValidationError } from "@formspree/react";
 
 export default function ContactUs() {
@@ -176,8 +175,9 @@ export default function ContactUs() {
             </div>
 
             <div className="mt-8 text-xs text-slate-300">
-              Response time: typically <span className="font-semibold text-white">within 24 hours</span>.
-              No spam. No pressure.
+              Response time: typically{" "}
+              <span className="font-semibold text-white">within 24 hours</span>. No spam. No
+              pressure.
             </div>
           </div>
 
@@ -192,8 +192,7 @@ export default function ContactUs() {
             </div>
 
             <h3 className="text-2xl font-extrabold tracking-tight">
-              Get a quote + plan{" "}
-              <span className="text-slate-400 font-semibold">(fast)</span>
+              Get a quote + plan <span className="font-semibold text-slate-400">(fast)</span>
             </h3>
             <p className="mt-2 text-sm text-slate-600">
               Share the basics and we’ll respond with a next step + clear options.
@@ -201,28 +200,35 @@ export default function ContactUs() {
 
             {/* Formspree hook form */}
             <form className="mt-7 space-y-4" onSubmit={handleSubmit}>
-              {/* optional hidden metadata */}
               <input type="hidden" name="source" value="NeuroStack Website" />
 
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
-                  <label className="text-xs font-semibold text-slate-600">Name</label>
+                  <label htmlFor="name" className="text-xs font-semibold text-slate-600">
+                    Name
+                  </label>
                   <input
+                    id="name"
                     name="name"
                     type="text"
                     placeholder="Your name"
                     required
+                    autoComplete="name"
                     className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-blue-400 focus:ring-4 focus:ring-blue-100"
                   />
                 </div>
+
                 <div>
-                  <label className="text-xs font-semibold text-slate-600">Email</label>
+                  <label htmlFor="email" className="text-xs font-semibold text-slate-600">
+                    Email
+                  </label>
                   <input
                     id="email"
                     name="email"
                     type="email"
                     placeholder="you@company.com"
                     required
+                    autoComplete="email"
                     className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-blue-400 focus:ring-4 focus:ring-blue-100"
                   />
                   <ValidationError prefix="Email" field="email" errors={state.errors} />
@@ -231,20 +237,29 @@ export default function ContactUs() {
 
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
-                  <label className="text-xs font-semibold text-slate-600">Phone (optional)</label>
+                  <label htmlFor="phone" className="text-xs font-semibold text-slate-600">
+                    Phone (optional)
+                  </label>
                   <input
+                    id="phone"
                     name="phone"
                     type="tel"
                     placeholder="(555) 555-5555"
+                    autoComplete="tel"
                     className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-blue-400 focus:ring-4 focus:ring-blue-100"
                   />
                 </div>
+
                 <div>
-                  <label className="text-xs font-semibold text-slate-600">Current website (optional)</label>
+                  <label htmlFor="website" className="text-xs font-semibold text-slate-600">
+                    Current website (optional)
+                  </label>
                   <input
+                    id="website"
                     name="website"
-                    type="text"
+                    type="url"
                     placeholder="https://"
+                    autoComplete="url"
                     className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-blue-400 focus:ring-4 focus:ring-blue-100"
                   />
                 </div>
@@ -252,9 +267,13 @@ export default function ContactUs() {
 
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
-                  <label className="text-xs font-semibold text-slate-600">Service</label>
+                  <label htmlFor="service" className="text-xs font-semibold text-slate-600">
+                    Service
+                  </label>
                   <select
+                    id="service"
                     name="service"
+                    defaultValue="New Website Build"
                     className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-blue-400 focus:ring-4 focus:ring-blue-100"
                   >
                     <option>New Website Build</option>
@@ -264,10 +283,15 @@ export default function ContactUs() {
                     <option>Lead Capture + Automations</option>
                   </select>
                 </div>
+
                 <div>
-                  <label className="text-xs font-semibold text-slate-600">Budget range</label>
+                  <label htmlFor="budget" className="text-xs font-semibold text-slate-600">
+                    Budget range
+                  </label>
                   <select
+                    id="budget"
                     name="budget"
+                    defaultValue="$1k – $3k"
                     className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-blue-400 focus:ring-4 focus:ring-blue-100"
                   >
                     <option>$1k – $3k</option>
@@ -280,7 +304,7 @@ export default function ContactUs() {
               </div>
 
               <div>
-                <label className="text-xs font-semibold text-slate-600">
+                <label htmlFor="message" className="text-xs font-semibold text-slate-600">
                   Project details (goals, pages, timeline, what’s broken)
                 </label>
                 <textarea
