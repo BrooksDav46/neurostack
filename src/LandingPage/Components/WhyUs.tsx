@@ -1,4 +1,4 @@
-// src/LandingPage/Components/WhyUs.tsx
+
 import { useEffect, useState } from "react";
 import PlumbingWebsite from "../../assets/Plumbing_Website.webp";
 import { useInView } from "../../hooks/useInView";

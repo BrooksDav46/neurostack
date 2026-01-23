@@ -1,5 +1,5 @@
 // src/LandingPage/Components/Process.tsx
-import React from "react";
+// import React from "react";
 
 export default function Process() {
   const steps = [

@@ -1,5 +1,5 @@
 // src/LandingPage/Components/Built.tsx
-import React from "react";
+// import React from "react";
 import { useInView } from "../../hooks/useInView";
 import { getRevealClasses } from "../../hooks/getRevealClasses";
 
