@@ -6,17 +6,17 @@ export default function NavBar() {
   return (
     <nav className="sticky top-0 z-50 w-full">
       {/* Always the same look */}
-      <div className="relative w-full bg-[#1E3A8A]/55 backdrop-blur-xl">
+      <div className="relative w-full bg-[#0B1220]/70 backdrop-blur-xl">
         {/* Neon bottom glow */}
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-sky-300/70 to-transparent" />
         <div className="pointer-events-none absolute inset-x-0 -bottom-3 h-6 bg-gradient-to-b from-sky-400/25 to-transparent blur-2xl" />
 
         <div className="mx-auto flex h-20 max-w-screen-2xl items-center justify-between px-6">
           {/* BRAND / LOGO */}
-          <Link to="/" className="flex items-center gap-3">
+          <Link to="/" className="flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 rounded-lg">
             <img
               src={logoIcon}
-              alt="NeuroStack"
+              alt="NeuroStack logo"
               className="h-10 w-auto object-contain drop-shadow-[0_8px_20px_rgba(0,0,0,0.45)]"
             />
 
@@ -38,8 +38,14 @@ export default function NavBar() {
                 key={item.to}
                 to={item.to}
                 className="
-                  relative text-base font-semibold text-blue-100/90 transition
+                  relative text-base font-semibold
+                  text-white/90
+                  transition
                   hover:text-white
+                  focus-visible:text-white
+                  focus-visible:outline-none
+                  focus-visible:ring-2
+                  focus-visible:ring-white/40
                   after:absolute after:left-0 after:-bottom-2 after:h-[2px] after:w-full
                   after:origin-left after:scale-x-0 after:rounded-full after:bg-sky-300/90
                   after:shadow-[0_0_18px_rgba(56,189,248,0.65)]
@@ -61,6 +67,7 @@ export default function NavBar() {
               shadow-[0_18px_60px_rgba(2,6,23,0.30)]
               ring-1 ring-white/50
               hover:bg-blue-50 transition-all
+              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300
             "
           >
             Get Started
