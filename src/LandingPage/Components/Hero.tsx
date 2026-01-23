@@ -1,171 +1,170 @@
 // src/LandingPage/Components/Hero.tsx
+import React from "react";
 import HeroVideo from "./HeroVideo";
-
-// ✅ MUST exist exactly with this casing on disk:
 import heroPoster from "../../assets/Hero-poster.webp";
-
-// ✅ Your actual file in assets is Hero.mp4 (capital H)
 import heroMp4 from "../../assets/Hero.mp4";
+
+function CtaBox({
+  title,
+  subtitle,
+  href,
+  icon,
+  variant = "primary",
+}: {
+  title: string;
+  subtitle: string;
+  href: string;
+  icon?: React.ReactNode;
+  variant?: "primary" | "secondary";
+}) {
+  const isPrimary = variant === "primary";
+
+  return (
+    <a
+      href={href}
+      className="
+        group relative w-full sm:w-[290px]
+        overflow-hidden rounded-2xl
+        bg-white/7 backdrop-blur-xl
+        ring-1 ring-white/10
+        px-6 py-5
+        transition-all duration-300
+        hover:-translate-y-1 hover:bg-white/10
+        shadow-[0_18px_50px_rgba(0,0,0,0.45)]
+      "
+    >
+      {/* glow edge */}
+      <div className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 transition duration-300 group-hover:opacity-100">
+        <div
+          className={[
+            "absolute inset-0 rounded-2xl ring-1",
+            isPrimary
+              ? "ring-cyan-300/55 shadow-[0_0_26px_rgba(34,211,238,0.38)]"
+              : "ring-white/30 shadow-[0_0_18px_rgba(255,255,255,0.14)]",
+          ].join(" ")}
+        />
+      </div>
+
+      {/* subtle wash */}
+      <div
+        className={[
+          "pointer-events-none absolute inset-0 opacity-0 transition duration-300 group-hover:opacity-100",
+          isPrimary
+            ? "bg-gradient-to-br from-cyan-400/10 via-white/0 to-indigo-400/10"
+            : "bg-gradient-to-br from-white/6 via-white/0 to-white/5",
+        ].join(" ")}
+      />
+
+      <div className="relative flex items-start gap-3">
+        {icon && (
+          <div
+            className={[
+              "mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-xl ring-1 text-white",
+              isPrimary
+                ? "bg-cyan-400/12 ring-cyan-300/20 shadow-[0_0_18px_rgba(34,211,238,0.18)]"
+                : "bg-white/8 ring-white/15 shadow-[0_0_14px_rgba(255,255,255,0.10)]",
+            ].join(" ")}
+          >
+            {icon}
+          </div>
+        )}
+
+        <div className="min-w-0">
+          <div className="text-sm font-semibold text-white">
+            {title}{" "}
+            <span className="inline-block translate-x-0 transition group-hover:translate-x-1">
+              →
+            </span>
+          </div>
+          <div className="mt-1 text-xs leading-relaxed text-white/80">
+            {subtitle}
+          </div>
+        </div>
+      </div>
+    </a>
+  );
+}
 
 export default function Hero() {
   return (
-    <section id="home" className="relative w-full overflow-hidden">
-      {/* VIDEO BACKGROUND (Poster first, video fades in) */}
+    <section id="home" className="relative z-0 w-full overflow-visible">
+      {/* video bg */}
       <div className="absolute inset-0 -z-10">
-        <HeroVideo mp4={heroMp4} poster={heroPoster} mountDelayMs={60} fadeMs={520} />
-
-        {/* Cohesive overlay (navy -> blue) */}
-        <div className="absolute inset-0 bg-slate-950/70" />
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-950/55 via-slate-950/35 to-blue-900/40" />
-
-        {/* subtle bottom readability haze */}
-        <div className="absolute inset-x-0 bottom-0 h-[45%] bg-gradient-to-t from-slate-950/75 via-slate-950/25 to-transparent" />
-
-        {/* tiny grain */}
+        <HeroVideo
+          mp4={heroMp4}
+          poster={heroPoster}
+          mountDelayMs={60}
+          fadeMs={520}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/38 to-black/82" />
         <div
-          className="absolute inset-0 opacity-[0.08]"
+          className="absolute inset-0 opacity-[0.03]"
           style={{
             backgroundImage:
-              "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.35) 1px, transparent 0)",
+              "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.25) 1px, transparent 0)",
             backgroundSize: "28px 28px",
           }}
         />
       </div>
 
-      {/* CONTENT */}
-      <div className="relative mx-auto w-full max-w-screen-2xl px-6 sm:px-10">
-        <div className="grid min-h-[700px] items-center gap-10 py-16 lg:grid-cols-[1.15fr_1fr]">
-          {/* LEFT */}
-          <div className="max-w-3xl">
-            <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1 text-sm font-semibold text-white ring-1 ring-white/15 backdrop-blur">
-              Conversion-first Web + SEO
-            </span>
+      <div className="relative mx-auto max-w-[1700px] px-6 sm:px-12">
+        <div className="flex min-h-[86vh] flex-col items-center justify-center pt-28 pb-64 sm:pt-32 sm:pb-72 text-center">
+          {/* pill */}
+          <div className="inline-flex items-center rounded-full bg-black/30 px-4 py-1.5 text-xs font-semibold text-white ring-1 ring-white/15 backdrop-blur">
+            El Paso Web Design & SEO
+          </div>
 
-            <h1 className="mt-6 text-5xl font-extrabold leading-[1.06] tracking-tight text-white sm:text-6xl lg:text-7xl">
-              Websites that <span className="block text-blue-300">rank + convert</span>
-            </h1>
+          {/* headline (✅ slightly smaller) */}
+          <h1 className="mt-7 w-full max-w-[1400px] text-[clamp(2.7rem,5.8vw,6rem)] font-extrabold leading-[0.93] tracking-[-0.02em] text-white drop-shadow-[0_12px_40px_rgba(0,0,0,0.6)]">
+            Web Development Company in El Paso Built to Drive Real Business
+            Growth
+          </h1>
 
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg">
-              We build fast, modern websites that generate leads—clean code, mobile-first layouts,
-              and technical SEO baked in from day one.
-            </p>
+          {/* sub (✅ fixed max width — yours was 8730px) */}
+          <p className="mt-6 max-w-[820px] text-sm leading-relaxed text-white/85 sm:text-base">
+            We build high-performance websites with local SEO, lead generation,
+            and conversion strategy — all designed to grow your business.
+          </p>
 
-            <ul className="mt-6 space-y-3 text-sm text-white/85 sm:text-base">
-              {[
-                "Performance-focused builds (Core Web Vitals)",
-                "SEO-ready structure + conversion-first UX",
-                "Forms, booking, CRM + automations (Zapier/HubSpot)",
-              ].map((t) => (
-                <li key={t} className="flex gap-3">
-                  <span className="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-blue-500/20 text-blue-200 ring-1 ring-blue-300/20">
-                    ✓
-                  </span>
+          {/* ctas */}
+          <div className="mt-10 flex w-full flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+            <CtaBox
+              href="#contact"
+              title="Get a Free Strategy Call"
+              subtitle="Quick call → clear plan + next steps."
+              icon={<span className="text-lg">⚡</span>}
+              variant="primary"
+            />
+            <CtaBox
+              href="#features"
+              title="See Work + Services"
+              subtitle="Examples, packages, and what we build."
+              icon={<span className="text-lg">🧩</span>}
+              variant="secondary"
+            />
+          </div>
+
+          {/* chips */}
+          <div className="mt-7 flex flex-wrap items-center justify-center gap-2 text-xs">
+            {["Typical launch: 7–14 days", "Mobile-first", "SEO-ready"].map(
+              (t) => (
+                <span
+                  key={t}
+                  className="
+                    relative rounded-full px-3 py-1.5
+                    bg-black/25 backdrop-blur
+                    text-white/85
+                    ring-1 ring-white/10
+                    shadow-[0_0_0_1px_rgba(34,211,238,0.35),0_0_18px_rgba(34,211,238,0.18)]
+                  "
+                >
                   {t}
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-600/25 transition hover:bg-blue-500"
-              >
-                Get a Free Strategy Call
-              </a>
-
-              <a
-                href="#features"
-                className="inline-flex items-center justify-center rounded-xl bg-white/10 px-7 py-3 text-sm font-semibold text-white ring-1 ring-white/20 backdrop-blur transition hover:bg-white/15"
-              >
-                See Work + Services →
-              </a>
-            </div>
-
-            <div className="mt-6 flex flex-wrap gap-2 text-xs text-white/80">
-              {["Typical launch: 7–14 days", "Mobile-first + SEO-ready", "Built to generate leads"].map(
-                (chip) => (
-                  <span
-                    key={chip}
-                    className="rounded-full bg-white/10 px-3 py-1 ring-1 ring-white/15 backdrop-blur"
-                  >
-                    {chip}
-                  </span>
-                )
-              )}
-            </div>
+                </span>
+              )
+            )}
           </div>
-
-          {/* RIGHT FORM */}
-          <div className="relative w-full">
-            <div className="pointer-events-none absolute -inset-20 -z-10 rounded-full bg-blue-500/15 blur-3xl" />
-
-            <div className="overflow-hidden rounded-[28px] bg-white/92 shadow-[0_30px_90px_rgba(2,6,23,0.35)] ring-1 ring-white/30 backdrop-blur">
-              <div className="w-full bg-gradient-to-br from-white to-blue-50 p-8 sm:p-10">
-                <div className="mb-5 flex items-center gap-2">
-                  <span className="h-3 w-3 rounded-full bg-red-400" />
-                  <span className="h-3 w-3 rounded-full bg-yellow-400" />
-                  <span className="h-3 w-3 rounded-full bg-green-400" />
-                  <span className="ml-auto text-xs font-semibold text-slate-500">Request a Quote</span>
-                </div>
-
-                <h3 className="text-xl font-bold text-slate-900">Get a fast quote + plan</h3>
-                <p className="mt-2 text-sm text-slate-600">
-                  Tell us what you need. We’ll reply within 24 hours with a clear plan.
-                </p>
-
-                <form className="mt-5 space-y-3">
-                  <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                    <input
-                      type="text"
-                      placeholder="Name"
-                      className="w-full rounded-xl border border-slate-200 bg-white p-3 text-sm outline-none transition focus:ring-2 focus:ring-blue-500"
-                    />
-                    <input
-                      type="email"
-                      placeholder="Email"
-                      className="w-full rounded-xl border border-slate-200 bg-white p-3 text-sm outline-none transition focus:ring-2 focus:ring-blue-500"
-                    />
-                  </div>
-
-                  <input
-                    type="text"
-                    placeholder="Current Website (optional)"
-                    className="w-full rounded-xl border border-slate-200 bg-white p-3 text-sm outline-none transition focus:ring-2 focus:ring-blue-500"
-                  />
-
-                  <select className="w-full rounded-xl border border-slate-200 bg-white p-3 text-sm text-slate-700 outline-none transition focus:ring-2 focus:ring-blue-500">
-                    <option>Website Build</option>
-                    <option>Redesign</option>
-                    <option>SEO Fixes</option>
-                    <option>Lead Capture</option>
-                    <option>Automations / Integrations</option>
-                  </select>
-
-                  <textarea
-                    placeholder="Tell us about your project (goals, pages, timeline)…"
-                    rows={4}
-                    className="w-full rounded-xl border border-slate-200 bg-white p-3 text-sm outline-none transition focus:ring-2 focus:ring-blue-500"
-                  />
-
-                  <button
-                    type="submit"
-                    className="w-full rounded-xl bg-blue-600 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-600/20 transition hover:bg-blue-500"
-                  >
-                    Send Request →
-                  </button>
-
-                  <p className="text-center text-xs text-slate-500">
-                    No spam. Just a quick reply and a clear plan.
-                  </p>
-                </form>
-              </div>
-            </div>
-          </div>
-          {/* END RIGHT */}
         </div>
       </div>
-
-      <div className="h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent" />
     </section>
   );
 }
