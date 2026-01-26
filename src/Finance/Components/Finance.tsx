@@ -1,17 +1,4 @@
-import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-
-function formatUSD(n: number) {
-  try {
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-      maximumFractionDigits: 0,
-    }).format(n);
-  } catch {
-    return `$${Math.round(n).toLocaleString()}`;
-  }
-}
 
 type Tier = {
   name: string;
@@ -92,7 +79,9 @@ function PackageCard({
           </div>
 
           {badge ? (
-            <span className={`rounded-full border px-3 py-1 text-xs ${badgeClass}`}>
+            <span
+              className={`rounded-full border px-3 py-1 text-xs ${badgeClass}`}
+            >
               {badge}
             </span>
           ) : null}
@@ -117,7 +106,7 @@ function PackageCard({
                 : "bg-white text-blue-900 hover:bg-blue-50",
             ].join(" ")}
           >
-            Choose {name}
+            Get a quote
           </Link>
         </div>
 
@@ -131,54 +120,11 @@ function PackageCard({
   );
 }
 
-function MiniField({
-  label,
-  value,
-  onChange,
-  right,
-  min,
-  max,
-}: {
-  label: string;
-  value: number;
-  onChange: (n: number) => void;
-  right?: string;
-  min?: number;
-  max?: number;
-}) {
-  return (
-    <div className="rounded-2xl border border-white/10 bg-black/20 p-2.5">
-      <div className="flex items-center justify-between gap-3">
-        <label className="text-xs text-white/60">{label}</label>
-        {right ? <span className="text-[11px] text-white/45">{right}</span> : null}
-      </div>
-      <input
-        type="number"
-        min={min}
-        max={max}
-        value={value}
-        onChange={(e) => onChange(Number(e.target.value))}
-        className="mt-2 w-full rounded-xl border border-white/10 bg-[#020617]/60 px-3 py-2 text-sm text-white outline-none focus:border-sky-300/60"
-      />
-    </div>
-  );
-}
-
 export default function Finance() {
-  const [avgJobValue, setAvgJobValue] = useState(2500);
-  const [closeRate, setCloseRate] = useState(30);
-  const [leadsPerMonth, setLeadsPerMonth] = useState(20);
-
-  const { estJobs, estRevenue } = useMemo(() => {
-    const jobs = (Math.max(0, leadsPerMonth) * Math.max(0, closeRate)) / 100;
-    const revenue = jobs * Math.max(0, avgJobValue);
-    return { estJobs: jobs, estRevenue: revenue };
-  }, [avgJobValue, closeRate, leadsPerMonth]);
-
   const buildTiers: Tier[] = [
     {
       name: "Starter Build",
-      price: "From $1,500",
+      price: "Scoped to your needs",
       tagline: "Clean, fast, credible — built to convert.",
       includes: [
         "1–3 core pages (Home + Services + Contact)",
@@ -189,7 +135,7 @@ export default function Finance() {
     },
     {
       name: "Growth Build",
-      price: "From $3,500",
+      price: "Scoped to your needs",
       tagline: "Built to rank locally and scale.",
       includes: [
         "Service page structure + stronger conversion flow",
@@ -201,7 +147,7 @@ export default function Finance() {
     },
     {
       name: "Pro System",
-      price: "From $6,500",
+      price: "Scoped to your needs",
       tagline: "A real pipeline system, not a brochure.",
       includes: [
         "Service + location expansion structure",
@@ -212,7 +158,7 @@ export default function Finance() {
     },
     {
       name: "Enterprise",
-      price: "$10,000+",
+      price: "Custom quote",
       tagline: "Multi-location, multi-service, high volume.",
       includes: [
         "Large site architecture + scaling roadmap",
@@ -220,30 +166,6 @@ export default function Finance() {
         "Performance tuning + technical cleanup",
         "Custom integrations / automation buildout",
       ],
-    },
-  ];
-
-  const maintenanceTiers: Tier[] = [
-    {
-      name: "Care",
-      price: "$149/mo",
-      tagline: "Keep it healthy and current.",
-      includes: [
-        "Basic updates (text/images)",
-        "Security + uptime checks",
-        "Monthly performance check",
-      ],
-    },
-    {
-      name: "Growth Care",
-      price: "$399/mo",
-      tagline: "Ongoing improvements + SEO support.",
-      includes: [
-        "Monthly on-page improvements",
-        "New section/page additions (light)",
-        "Tracking review + iteration",
-      ],
-      highlight: true,
     },
   ];
 
@@ -264,19 +186,16 @@ export default function Finance() {
             <div className="lg:col-span-7 space-y-4">
               <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/70">
                 <span className="h-2 w-2 rounded-full bg-sky-300 shadow-[0_0_18px_rgba(56,189,248,0.65)]" />
-                Pricing + ROI clarity • Built for local growth
+                Clear scope • Built for local growth
               </div>
 
               <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-                Pricing that scales with your business.
+                Packages are just starting points.
               </h1>
 
               <p className="max-w-2xl text-lg text-white/70 leading-relaxed">
-                Our builds start at{" "}
-                <span className="text-white/90 font-semibold">$1,500</span> and scale
-                to <span className="text-white/90 font-semibold">$10,000+</span> for
-                enterprise systems. Everything is scoped to what you actually need —
-                no fluff, no bloat.
+                We scope your quote to your services, locations, conversion needs, and integrations.
+                You’ll get a clear plan with deliverables before we start — no fluff, no bloat.
               </p>
 
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -293,13 +212,6 @@ export default function Finance() {
                 >
                   View packages
                 </a>
-
-                <a
-                  href="#roi"
-                  className="inline-flex items-center justify-center rounded-xl border border-white/12 bg-white/5 px-7 py-3 font-semibold text-white/90 transition hover:bg-white/8"
-                >
-                  Estimate ROI
-                </a>
               </div>
 
               <p className="text-sm text-white/55">
@@ -307,7 +219,7 @@ export default function Finance() {
               </p>
             </div>
 
-            {/* Finance Console */}
+            {/* Scope Console */}
             <div className="lg:col-span-5">
               <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 shadow-[0_18px_70px_rgba(2,6,23,0.45)]">
                 <div className="pointer-events-none absolute -top-28 right-6 h-56 w-56 rounded-full bg-purple-500/16 blur-[90px]" />
@@ -317,14 +229,14 @@ export default function Finance() {
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <div className="text-sm font-semibold text-white/85">
-                      What pricing depends on
+                      What your quote depends on
                     </div>
                     <div className="mt-1 text-sm text-white/60">
                       Scope, pages, integrations, and scale.
                     </div>
                   </div>
                   <span className="rounded-full border border-white/10 bg-black/25 px-3 py-1 text-xs text-white/70">
-                    Finance Console
+                    Scope Console
                   </span>
                 </div>
 
@@ -362,7 +274,7 @@ export default function Finance() {
                 </p>
               </div>
               <span className="inline-flex w-fit items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">
-                Pricing shown as “from” — final is scoped
+                Quotes are scoped to your needs
               </span>
             </div>
 
@@ -393,10 +305,12 @@ export default function Finance() {
             <div className="relative p-7 sm:p-8">
               <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                 <div>
-                  <h2 className="text-xl font-semibold text-white/90">Financing available</h2>
+                  <h2 className="text-xl font-semibold text-white/90">
+                    Financing available
+                  </h2>
                   <p className="mt-1 text-white/65">
-                    Don’t delay a build that will pay for itself. We offer financing options so you can
-                    move now and scale as leads come in.
+                    Don’t delay a build that will pay for itself. We offer financing
+                    options so you can move now and scale as leads come in.
                   </p>
                 </div>
                 <span className="inline-flex w-fit items-center rounded-full border border-white/10 bg-black/20 px-3 py-1 text-xs text-white/70">
@@ -428,136 +342,6 @@ export default function Finance() {
                   Ask about financing
                 </Link>
               </div>
-            </div>
-          </section>
-
-          {/* MAINTENANCE */}
-          <section className="space-y-4">
-            <div className="flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between">
-              <div>
-                <h2 className="text-xl font-semibold text-white/90">Maintenance (optional)</h2>
-                <p className="mt-1 text-white/65">
-                  For businesses that want updates, performance checks, and ongoing improvements.
-                </p>
-              </div>
-            </div>
-
-            <div className="grid gap-5 md:grid-cols-2">
-              {maintenanceTiers.map((t) => (
-                <PackageCard
-                  key={t.name}
-                  name={t.name}
-                  price={t.price}
-                  tagline={t.tagline}
-                  includes={t.includes}
-                  badge={t.highlight ? "Most popular" : undefined}
-                  badgeStyle="purple"
-                  featured={t.name === "Growth Care"}
-                />
-              ))}
-            </div>
-          </section>
-
-          {/* ROI */}
-          <section
-            id="roi"
-            className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5"
-          >
-            <div className="pointer-events-none absolute inset-0">
-              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-purple-300/70 to-transparent" />
-              <div className="absolute -top-24 left-12 h-56 w-56 rounded-full bg-purple-500/14 blur-[90px]" />
-              <div className="absolute -bottom-24 right-12 h-56 w-56 rounded-full bg-sky-500/12 blur-[90px]" />
-            </div>
-
-            <div className="relative p-6 sm:p-7">
-              <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-                <div>
-                  <h2 className="text-2xl font-semibold">ROI estimator</h2>
-                  <p className="mt-1 max-w-3xl text-white/65">
-                    Quick planning math. Not a promise — a clarity tool.
-                  </p>
-                </div>
-                <span className="inline-flex w-fit items-center rounded-full border border-white/10 bg-black/20 px-3 py-1 text-xs text-white/70">
-                  Local leads → booked work
-                </span>
-              </div>
-
-              <div className="mt-5 grid gap-5 lg:grid-cols-12">
-                <div className="lg:col-span-7 grid gap-3 sm:grid-cols-3">
-                  <MiniField
-                    label="Leads / month"
-                    value={leadsPerMonth}
-                    onChange={setLeadsPerMonth}
-                    min={0}
-                  />
-                  <MiniField
-                    label="Close rate (%)"
-                    value={closeRate}
-                    onChange={setCloseRate}
-                    min={0}
-                    max={100}
-                    right="0–100"
-                  />
-                  <MiniField
-                    label="Avg job value"
-                    value={avgJobValue}
-                    onChange={setAvgJobValue}
-                    min={0}
-                  />
-                </div>
-
-                <div className="lg:col-span-5">
-                  <div className="h-full rounded-2xl border border-white/10 bg-gradient-to-br from-purple-500/12 via-white/5 to-sky-500/12 p-5">
-                    <div className="text-sm font-semibold text-white/85">
-                      Estimated monthly impact
-                    </div>
-
-                    <div className="mt-4 grid gap-3">
-                      <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
-                        <div className="text-xs text-white/55">Jobs closed / month</div>
-                        <div className="mt-1 text-2xl font-bold">{estJobs.toFixed(1)}</div>
-                      </div>
-
-                      <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
-                        <div className="text-xs text-white/55">Revenue / month</div>
-                        <div className="mt-1 text-2xl font-bold">{formatUSD(estRevenue)}</div>
-                      </div>
-                    </div>
-
-                    <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
-                      <Link
-                        to="/contact"
-                        className="inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 font-semibold text-blue-900 transition hover:bg-blue-50"
-                      >
-                        Get a real estimate
-                      </Link>
-                      <span className="text-sm text-white/55">We’ll scope it honestly.</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <p className="mt-5 text-sm text-white/55 leading-relaxed">
-                For local service businesses, ROI usually comes from better local visibility,
-                stronger trust signals, and a conversion path that makes calling or requesting
-                an estimate effortless. NeuroStack focuses on performance, structure, and clarity.
-              </p>
-            </div>
-          </section>
-
-          {/* Final CTA */}
-          <section className="rounded-2xl border border-white/10 bg-white/5 p-8 text-center">
-            <h2 className="text-2xl font-semibold">Want a scoped price?</h2>
-            <p className="mt-2 text-white/70">
-              Tell us your service + the areas you serve. We’ll recommend the smallest package that wins.
-            </p>
-            <div className="mt-6">
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center rounded-xl bg-sky-500 px-7 py-3 font-semibold text-white transition hover:bg-sky-600"
-              >
-                Contact NeuroStack
-              </Link>
             </div>
           </section>
         </div>
