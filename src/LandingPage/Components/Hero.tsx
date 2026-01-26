@@ -88,9 +88,11 @@ function CtaBox({
 
 export default function Hero() {
   return (
-    <section id="home" className="relative z-0 w-full overflow-visible">
+    // ✅ IMPORTANT: prevent sideways overflow on iOS
+    <section id="home" className="relative z-0 w-full overflow-x-hidden">
       {/* video bg */}
-      <div className="absolute inset-0 -z-10">
+      {/* ✅ IMPORTANT: keep bg from creating horizontal scroll */}
+      <div className="absolute inset-0 -z-10 w-full overflow-hidden">
         <HeroVideo
           mp4={heroMp4}
           poster={heroPoster}
@@ -117,8 +119,7 @@ export default function Hero() {
 
           {/* headline */}
           <h1 className="mt-7 w-full max-w-[1400px] text-[clamp(2.7rem,5.8vw,6rem)] font-extrabold leading-[0.93] tracking-[-0.02em] text-white drop-shadow-[0_12px_40px_rgba(0,0,0,0.6)]">
-            Web Development Company in El Paso Built to Drive Real Business
-            Growth
+            Web Development Company in El Paso Built to Drive Real Business Growth
           </h1>
 
           {/* sub */}
@@ -127,7 +128,7 @@ export default function Hero() {
             and conversion strategy — all designed to grow your business.
           </p>
 
-          {/* ctas (✅ now routes) */}
+          {/* ctas */}
           <div className="mt-10 flex w-full flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
             <CtaBox
               to="/contact"
@@ -147,22 +148,20 @@ export default function Hero() {
 
           {/* chips */}
           <div className="mt-7 flex flex-wrap items-center justify-center gap-2 text-xs">
-            {["Typical launch: 7–14 days", "Mobile-first", "SEO-ready"].map(
-              (t) => (
-                <span
-                  key={t}
-                  className="
-                    relative rounded-full px-3 py-1.5
-                    bg-black/25 backdrop-blur
-                    text-white/85
-                    ring-1 ring-white/10
-                    shadow-[0_0_0_1px_rgba(34,211,238,0.35),0_0_18px_rgba(34,211,238,0.18)]
-                  "
-                >
-                  {t}
-                </span>
-              )
-            )}
+            {["Typical launch: 7–14 days", "Mobile-first", "SEO-ready"].map((t) => (
+              <span
+                key={t}
+                className="
+                  relative rounded-full px-3 py-1.5
+                  bg-black/25 backdrop-blur
+                  text-white/85
+                  ring-1 ring-white/10
+                  shadow-[0_0_0_1px_rgba(34,211,238,0.35),0_0_18px_rgba(34,211,238,0.18)]
+                "
+              >
+                {t}
+              </span>
+            ))}
           </div>
         </div>
       </div>
