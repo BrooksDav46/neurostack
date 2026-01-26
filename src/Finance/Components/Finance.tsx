@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 type Tier = {
   name: string;
-  price: string;
+  priceLabel: string; // renamed from "price" to avoid implying money
   tagline: string;
   includes: string[];
   highlight?: boolean;
@@ -10,7 +10,7 @@ type Tier = {
 
 function PackageCard({
   name,
-  price,
+  priceLabel,
   tagline,
   includes,
   badge,
@@ -18,7 +18,7 @@ function PackageCard({
   featured = false,
 }: {
   name: string;
-  price: string;
+  priceLabel: string;
   tagline: string;
   includes: string[];
   badge?: string;
@@ -74,14 +74,12 @@ function PackageCard({
         <div className="flex items-start justify-between gap-3">
           <div>
             <div className="text-sm font-semibold text-white/90">{name}</div>
-            <div className="mt-1 text-2xl font-bold">{price}</div>
+            <div className="mt-1 text-2xl font-bold">{priceLabel}</div>
             <div className="mt-1 text-sm text-white/65">{tagline}</div>
           </div>
 
           {badge ? (
-            <span
-              className={`rounded-full border px-3 py-1 text-xs ${badgeClass}`}
-            >
+            <span className={`rounded-full border px-3 py-1 text-xs ${badgeClass}`}>
               {badge}
             </span>
           ) : null}
@@ -112,7 +110,7 @@ function PackageCard({
 
         {featured ? (
           <div className="mt-3 text-xs text-white/55">
-            Recommended for most local service businesses.
+            Best fit for most local service businesses.
           </div>
         ) : null}
       </div>
@@ -123,8 +121,8 @@ function PackageCard({
 export default function Finance() {
   const buildTiers: Tier[] = [
     {
-      name: "Starter Build",
-      price: "Scoped to your needs",
+      name: "Starter Package",
+      priceLabel: "Starter",
       tagline: "Clean, fast, credible — built to convert.",
       includes: [
         "1–3 core pages (Home + Services + Contact)",
@@ -134,8 +132,8 @@ export default function Finance() {
       ],
     },
     {
-      name: "Growth Build",
-      price: "Scoped to your needs",
+      name: "Business Package",
+      priceLabel: "Business",
       tagline: "Built to rank locally and scale.",
       includes: [
         "Service page structure + stronger conversion flow",
@@ -146,8 +144,8 @@ export default function Finance() {
       highlight: true,
     },
     {
-      name: "Pro System",
-      price: "Scoped to your needs",
+      name: "Pro Package",
+      priceLabel: "Pro",
       tagline: "A real pipeline system, not a brochure.",
       includes: [
         "Service + location expansion structure",
@@ -157,8 +155,8 @@ export default function Finance() {
       ],
     },
     {
-      name: "Enterprise",
-      price: "Custom quote",
+      name: "Enterprise Package",
+      priceLabel: "Enterprise",
       tagline: "Multi-location, multi-service, high volume.",
       includes: [
         "Large site architecture + scaling roadmap",
@@ -172,7 +170,7 @@ export default function Finance() {
   return (
     <main className="min-h-screen bg-[#020617] text-white">
       <div className="relative overflow-hidden">
-        {/* Premium background accents (no grid) */}
+        {/* Premium background accents */}
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute -top-48 left-[-180px] h-[620px] w-[620px] rounded-full bg-purple-500/18 blur-[130px]" />
           <div className="absolute top-0 right-[-220px] h-[640px] w-[640px] rounded-full bg-sky-500/16 blur-[130px]" />
@@ -186,16 +184,16 @@ export default function Finance() {
             <div className="lg:col-span-7 space-y-4">
               <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/70">
                 <span className="h-2 w-2 rounded-full bg-sky-300 shadow-[0_0_18px_rgba(56,189,248,0.65)]" />
-                Clear scope • Built for local growth
+                Clear packages • Built for local growth
               </div>
 
               <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-                Packages are just starting points.
+                Choose a package. Get a clear quote.
               </h1>
 
               <p className="max-w-2xl text-lg text-white/70 leading-relaxed">
-                We scope your quote to your services, locations, conversion needs, and integrations.
-                You’ll get a clear plan with deliverables before we start — no fluff, no bloat.
+                Pick the package that matches where your business is right now.
+                We’ll confirm scope, deliverables, and timeline before we start.
               </p>
 
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -219,7 +217,7 @@ export default function Finance() {
               </p>
             </div>
 
-            {/* Scope Console */}
+            {/* Package Fit Console */}
             <div className="lg:col-span-5">
               <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 shadow-[0_18px_70px_rgba(2,6,23,0.45)]">
                 <div className="pointer-events-none absolute -top-28 right-6 h-56 w-56 rounded-full bg-purple-500/16 blur-[90px]" />
@@ -229,23 +227,23 @@ export default function Finance() {
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <div className="text-sm font-semibold text-white/85">
-                      What your quote depends on
+                      What package fits you?
                     </div>
                     <div className="mt-1 text-sm text-white/60">
-                      Scope, pages, integrations, and scale.
+                      It depends on services, locations, and workflow.
                     </div>
                   </div>
                   <span className="rounded-full border border-white/10 bg-black/25 px-3 py-1 text-xs text-white/70">
-                    Scope Console
+                    Quick guide
                   </span>
                 </div>
 
                 <div className="mt-5 grid gap-3">
                   {[
-                    ["Service + location needs", "How many services/areas"],
-                    ["Conversion requirements", "Calls/forms/booking flow"],
-                    ["Tracking + automation", "Pipeline visibility + routing"],
-                    ["Performance needs", "Speed/CWV + clean build"],
+                    ["Services + locations", "Single vs multi-service/area"],
+                    ["Conversion needs", "Calls/forms/booking flow"],
+                    ["Tracking needs", "Basic vs goals + funnel"],
+                    ["Automation", "CRM routing + integrations"],
                   ].map(([k, v]) => (
                     <div
                       key={k}
@@ -258,7 +256,7 @@ export default function Finance() {
                 </div>
 
                 <div className="mt-5 text-xs text-white/50">
-                  You get a scoped plan with clear deliverables before we start.
+                  You get clear deliverables and timeline before we start.
                 </div>
               </div>
             </div>
@@ -268,13 +266,13 @@ export default function Finance() {
           <section id="packages" className="space-y-4">
             <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
               <div>
-                <h2 className="text-2xl font-semibold">Build packages</h2>
+                <h2 className="text-2xl font-semibold">Packages</h2>
                 <p className="mt-1 text-white/65">
-                  Simple tiers. Clean scope. Built for local service businesses.
+                  Choose the tier that matches where you are today.
                 </p>
               </div>
               <span className="inline-flex w-fit items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">
-                Quotes are scoped to your needs
+                Final quote is based on scope
               </span>
             </div>
 
@@ -283,12 +281,12 @@ export default function Finance() {
                 <PackageCard
                   key={t.name}
                   name={t.name}
-                  price={t.price}
+                  priceLabel={t.priceLabel}
                   tagline={t.tagline}
                   includes={t.includes}
                   badge={t.highlight ? "Best value" : undefined}
                   badgeStyle="sky"
-                  featured={t.name === "Growth Build"}
+                  featured={t.name === "Business Package"}
                 />
               ))}
             </div>
@@ -305,12 +303,10 @@ export default function Finance() {
             <div className="relative p-7 sm:p-8">
               <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                 <div>
-                  <h2 className="text-xl font-semibold text-white/90">
-                    Financing available
-                  </h2>
+                  <h2 className="text-xl font-semibold text-white/90">Financing available</h2>
                   <p className="mt-1 text-white/65">
-                    Don’t delay a build that will pay for itself. We offer financing
-                    options so you can move now and scale as leads come in.
+                    Don’t delay a build that will pay for itself. We offer financing options so you can
+                    move now and scale as leads come in.
                   </p>
                 </div>
                 <span className="inline-flex w-fit items-center rounded-full border border-white/10 bg-black/20 px-3 py-1 text-xs text-white/70">
