@@ -91,7 +91,7 @@ export default function Contact() {
               <div className="lg:col-span-5">
                 <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
                   <QuickCard title="Email" value="hello@neurostack.dev" note="Best for scope + links" />
-                  <QuickCard title="Phone" value="(915) 555-0123" note="Mon–Fri business hours" />
+                  <QuickCard title="Phone" value="(912) 774-5619" note="Mon–Fri business hours" />
                   <QuickCard title="Location" value="El Paso, TX" note="Local-first builds" />
                 </div>
 
