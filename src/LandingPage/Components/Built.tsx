@@ -105,8 +105,7 @@ export default function Built() {
             </h2>
 
             <p className="mt-3 text-base text-white/70">
-              These are example deliverables — swap the placeholder previews with real screenshots
-              as you complete projects.
+             A curated selection of websites and digital products we’ve designed and built.
             </p>
           </div>
 
