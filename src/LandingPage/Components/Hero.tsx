@@ -119,7 +119,7 @@ export default function Hero() {
 
           {/* headline */}
           <h1 className="mt-7 w-full max-w-[1400px] text-[clamp(2.7rem,5.8vw,6rem)] font-extrabold leading-[0.93] tracking-[-0.02em] text-white drop-shadow-[0_12px_40px_rgba(0,0,0,0.6)]">
-            Web Development Company in El Paso Built to Drive Real Business Growth
+            Web Development Company in Texas Built to Drive Real Business Growth
           </h1>
 
           {/* sub */}
