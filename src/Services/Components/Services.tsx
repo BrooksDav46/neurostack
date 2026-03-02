@@ -10,45 +10,46 @@ type Service = {
 
 const SERVICES: Service[] = [
   {
-    title: "Web Systems",
+    title: "High-Conversion Websites",
     blurb:
-      "Fast, modern sites built like a product — clean UI, strong structure, built to scale.",
-    bullets: ["React + Tailwind", "Mobile-first UX", "Speed + structure"],
+      "Premium websites built to generate calls and form submissions — not just look good.",
+    bullets: ["Conversion-first layout", "Mobile-first UX", "Fast load + trust signals"],
     tag: "Build",
   },
   {
-    title: "Local SEO Foundation",
+    title: "Local SEO (El Paso)",
     blurb:
-      "We build the on-page structure that helps you show up for nearby searches.",
-    bullets: ["Service + city pages", "Schema + headings", "Internal linking"],
+      "Technical + on-page structure that helps you show up in Google Search and Maps.",
+    bullets: ["Service + city page system", "Schema + headings", "Internal linking + crawl clarity"],
     tag: "Rank",
   },
   {
-    title: "Conversion Design",
+    title: "Google Ads Management",
     blurb:
-      "Design that turns visitors into leads — clarity, proof, and frictionless CTAs.",
-    bullets: ["Clear CTA flow", "Trust signals", "High-intent layouts"],
+      "High-intent traffic with conversion tracking, landing pages, and lead quality focus.",
+    bullets: ["Search campaigns", "Call + form tracking", "Negative keywords + optimization"],
+    tag: "Scale",
+  },
+  {
+    title: "Landing Pages + Funnels",
+    blurb:
+      "Purpose-built pages for ads and offers — tighter messaging, higher conversion rates.",
+    bullets: ["Offer positioning", "A/B-ready layout", "Form + call CTAs"],
     tag: "Convert",
   },
   {
-    title: "Automation + Tracking",
+    title: "Tracking + Attribution",
     blurb:
-      "Connect your site to your pipeline so you can follow every lead end-to-end.",
-    bullets: ["Lead routing", "CRM handoff", "Analytics events"],
+      "Know what’s working. Track calls, forms, and booked jobs — not just clicks.",
+    bullets: ["GA4 + events", "Call tracking setup", "Lead source clarity"],
+    tag: "Measure",
+  },
+  {
+    title: "Automations + CRM Handoff",
+    blurb:
+      "Route leads instantly, follow up faster, and keep your pipeline organized.",
+    bullets: ["Zapier/CRM routing", "Auto follow-up", "Lead notifications + tagging"],
     tag: "Systemize",
-  },
-  {
-    title: "Performance Optimization",
-    blurb: "Core Web Vitals improvements that boost UX and support SEO.",
-    bullets: ["Image + asset tuning", "Code splitting", "CWV focus"],
-    tag: "Speed",
-  },
-  {
-    title: "Scalable Architecture",
-    blurb:
-      "A site you can grow into — add pages, offers, and locations without breaking it.",
-    bullets: ["Modular sections", "Reusable components", "Future-proof structure"],
-    tag: "Scale",
   },
 ];
 
@@ -62,9 +63,9 @@ function ServiceCard({ s }: { s: Service }) {
         shadow-[0_18px_60px_rgba(2,6,23,0.35)]
       "
     >
-      {/* Neon glow accents */}
-      <div className="pointer-events-none absolute -top-24 right-6 h-48 w-48 rounded-full bg-sky-500/10 blur-[70px] transition group-hover:bg-sky-500/18" />
-      <div className="pointer-events-none absolute -bottom-24 left-6 h-48 w-48 rounded-full bg-purple-500/10 blur-[70px] transition group-hover:bg-purple-500/18" />
+      {/* glow */}
+      <div className="pointer-events-none absolute -top-24 right-6 h-52 w-52 rounded-full bg-sky-500/10 blur-[70px] transition group-hover:bg-sky-500/18" />
+      <div className="pointer-events-none absolute -bottom-24 left-6 h-52 w-52 rounded-full bg-purple-500/10 blur-[70px] transition group-hover:bg-purple-500/18" />
 
       <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/25 px-3 py-1 text-xs text-white/70">
         <span className="h-2 w-2 rounded-full bg-sky-300 shadow-[0_0_14px_rgba(56,189,248,0.7)]" />
@@ -84,111 +85,116 @@ function ServiceCard({ s }: { s: Service }) {
       </ul>
 
       <div className="mt-5 flex items-center justify-between">
-        <span className="text-xs text-white/50">Built for local visibility</span>
+        <span className="text-xs text-white/50">Built for lead flow</span>
         <Link
           to="/contact"
           className="text-sm font-semibold text-sky-300 transition hover:text-sky-200"
         >
-          Get this →
+          Talk to us →
         </Link>
       </div>
     </div>
   );
 }
 
-function ParallaxBlock({
-  eyebrow,
-  title,
-  body,
-  bullets,
-  reverse,
-  accent = "purple",
-}: {
-  eyebrow: string;
-  title: string;
-  body: string;
-  bullets: string[];
-  reverse?: boolean;
-  accent?: "purple" | "sky";
-}) {
-  const accentA =
-    accent === "purple" ? "from-purple-500/25" : "from-sky-500/22";
-  const accentB =
-    accent === "purple" ? "to-sky-500/18" : "to-purple-500/18";
-  const dot = accent === "purple" ? "bg-purple-300" : "bg-sky-300";
+function ProofRow() {
+  const items = [
+    ["Local visibility", "Service + city structure so Google understands you."],
+    ["Conversion path", "CTA flow + proof so visitors take action."],
+    ["Performance", "Fast load times that support rankings and UX."],
+    ["Tracking", "Calls + forms tracked so you can scale confidently."],
+  ];
 
   return (
-    <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5">
-      {/* HARD-VISIBLE background */}
-      <div className="pointer-events-none absolute inset-0">
-        {/* diagonal neon band */}
+    <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      {items.map(([k, v]) => (
         <div
-          className={`absolute -left-40 top-[-220px] h-[560px] w-[1200px] rotate-12 bg-gradient-to-r ${accentA} ${accentB} blur-[0px]`}
-        />
-        {/* grid texture */}
+          key={k}
+          className="rounded-2xl border border-white/10 bg-white/5 p-4 shadow-[0_18px_60px_rgba(2,6,23,0.25)]"
+        >
+          <div className="text-sm font-semibold text-white">{k}</div>
+          <div className="mt-1 text-sm text-white/60">{v}</div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function InevitableBlock() {
+  return (
+    <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5">
+      <div className="pointer-events-none absolute inset-0">
+        {/* diagonal band */}
+        <div className="absolute -left-48 top-[-240px] h-[560px] w-[1200px] rotate-12 bg-gradient-to-r from-purple-500/22 to-sky-500/18 blur-[0px]" />
+        {/* grid */}
         <div className="absolute inset-0 opacity-[0.10] [background-image:linear-gradient(to_right,white_1px,transparent_1px),linear-gradient(to_bottom,white_1px,transparent_1px)] [background-size:64px_64px]" />
-        {/* edge glow */}
+        {/* edge */}
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent" />
+        {/* vignette */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/35" />
       </div>
 
-      <div className="relative mx-auto max-w-6xl px-6 py-14 sm:py-16">
-        <div
-          className={`grid gap-8 lg:grid-cols-12 ${
-            reverse ? "lg:[&>*:first-child]:order-2" : ""
-          }`}
-        >
-          {/* LEFT: STAT/PROOF STACK */}
+      <div className="relative mx-auto max-w-6xl px-6 py-12 sm:py-14">
+        <div className="grid gap-8 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <div className="rounded-2xl border border-white/10 bg-black/25 p-6 shadow-[0_18px_60px_rgba(2,6,23,0.35)]">
               <div className="flex items-center gap-2 text-sm text-white/70">
-                <span
-                  className={`h-2 w-2 rounded-full ${dot} shadow-[0_0_18px_rgba(192,132,252,0.55)]`}
-                />
-                {eyebrow}
+                <span className="h-2 w-2 rounded-full bg-sky-300 shadow-[0_0_18px_rgba(56,189,248,0.55)]" />
+                Our approach
               </div>
 
-              <div className="mt-6 grid gap-3">
+              <div className="mt-5 grid gap-3">
                 {[
-                  ["Local Visibility", "Service + location structure"],
-                  ["Conversion Path", "CTA flow + trust signals"],
-                  ["Performance", "Speed + Core Web Vitals focus"],
-                  ["Tracking Ready", "Events + lead routing"],
+                  ["Local SEO foundation", "Structure + schema + internal links"],
+                  ["Conversion-first design", "Clarity, proof, CTA flow"],
+                  ["Google Ads ready", "Landing pages + tracking"],
+                  ["Lead system", "Routing + reporting + follow-up"],
                 ].map(([k, v]) => (
-                  <div
-                    key={k}
-                    className="rounded-xl border border-white/10 bg-white/5 p-4"
-                  >
+                  <div key={k} className="rounded-xl border border-white/10 bg-white/5 p-4">
                     <div className="text-sm font-semibold text-white">{k}</div>
                     <div className="text-sm text-white/60">{v}</div>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-6 flex flex-wrap gap-2">
-                {["Local SEO", "Schema", "Speed", "Mobile UX", "Lead Capture"].map(
-                  (p) => (
-                    <span
-                      key={p}
-                      className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/65"
-                    >
-                      {p}
-                    </span>
-                  )
-                )}
+              <div className="mt-5 flex flex-wrap gap-2">
+                {["El Paso SEO", "Google Ads", "Landing Pages", "Tracking", "Automation"].map((p) => (
+                  <span
+                    key={p}
+                    className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/65"
+                  >
+                    {p}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
 
-          {/* RIGHT: CONTENT */}
           <div className="lg:col-span-7">
-            <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-              {title}
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/25 px-3 py-1 text-xs text-white/70">
+              <span className="h-2 w-2 rounded-full bg-purple-300 shadow-[0_0_14px_rgba(192,132,252,0.65)]" />
+              Built to rank + convert
+            </div>
+
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
+              Local-first marketing that becomes your{" "}
+              <span className="bg-gradient-to-r from-sky-200 via-blue-200 to-purple-200 bg-clip-text text-transparent">
+                lead engine
+              </span>
             </h2>
 
-            <p className="mt-4 text-white/70 leading-relaxed">{body}</p>
+            <p className="mt-4 text-white/70 leading-relaxed">
+              Stratum Marketing builds the full growth system: a premium website, local SEO structure,
+              and optional Google Ads — all tied together with tracking so you can scale what works.
+            </p>
 
             <ul className="mt-6 space-y-3 text-sm text-white/65">
-              {bullets.map((b) => (
+              {[
+                "Service + location structure that supports El Paso searches",
+                "High-trust layouts that turn visits into calls",
+                "Landing pages built specifically for ad traffic",
+                "Tracking that connects leads back to source",
+              ].map((b) => (
                 <li key={b} className="flex gap-3">
                   <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-white/35" />
                   <span>{b}</span>
@@ -201,14 +207,102 @@ function ParallaxBlock({
                 to="/contact"
                 className="inline-flex items-center justify-center rounded-xl bg-white px-7 py-3 font-semibold text-blue-900 transition hover:bg-blue-50"
               >
-                Get a build plan
+                Request a growth plan
               </Link>
-              <span className="text-sm text-white/55">
-                Tell us your service + area.
-              </span>
+              <span className="text-sm text-white/55">Tell us your service + area.</span>
             </div>
           </div>
         </div>
+      </div>
+    </section>
+  );
+}
+
+function EngagementPaths() {
+  const paths = [
+    {
+      title: "Website Build (Lead-Gen)",
+      desc: "Best if you need a premium site that converts and is built correctly from day one.",
+      points: ["Homepage + core pages", "Conversion layout + proof", "Speed + technical SEO setup"],
+    },
+    {
+      title: "Local SEO Foundation",
+      desc: "Best if you want to show up in El Paso searches with a real structure Google understands.",
+      points: ["Service + city page system", "On-page SEO + schema", "Internal links + index control"],
+    },
+    {
+      title: "Google Ads + Landing Pages",
+      desc: "Best if you want leads now while SEO builds — tracked and optimized for quality.",
+      points: ["Search campaigns", "Landing pages built for ads", "Call/form conversion tracking"],
+    },
+  ];
+
+  return (
+    <section className="rounded-3xl border border-white/10 bg-white/5 p-7 sm:p-8">
+      <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <h2 className="text-2xl font-semibold">How clients work with us</h2>
+          <p className="mt-2 text-white/70 max-w-2xl">
+            Clear options. No fluff. We’ll recommend the fastest path based on your goals.
+          </p>
+        </div>
+        <div className="text-sm text-white/55">No long-term lock-in required.</div>
+      </div>
+
+      <div className="mt-6 grid gap-5 lg:grid-cols-3">
+        {paths.map((p) => (
+          <div
+            key={p.title}
+            className="relative overflow-hidden rounded-2xl border border-white/10 bg-black/20 p-6 shadow-[0_18px_60px_rgba(2,6,23,0.28)]"
+          >
+            <div className="pointer-events-none absolute -top-24 right-6 h-48 w-48 rounded-full bg-sky-500/10 blur-[70px]" />
+            <div className="pointer-events-none absolute -bottom-24 left-6 h-48 w-48 rounded-full bg-purple-500/10 blur-[70px]" />
+
+            <div className="text-lg font-semibold">{p.title}</div>
+            <div className="mt-2 text-sm text-white/65 leading-relaxed">{p.desc}</div>
+
+            <ul className="mt-4 space-y-2 text-sm text-white/60">
+              {p.points.map((x) => (
+                <li key={x} className="flex gap-2">
+                  <span className="mt-[6px] h-1.5 w-1.5 shrink-0 rounded-full bg-white/30" />
+                  <span>{x}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-5">
+              <Link
+                to="/contact"
+                className="inline-flex items-center text-sm font-semibold text-sky-300 transition hover:text-sky-200"
+              >
+                Ask about this →
+              </Link>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function LocalSEOBlock() {
+  return (
+    <section className="rounded-3xl border border-white/10 bg-white/5 p-7 sm:p-8">
+      <h2 className="text-2xl font-semibold">El Paso digital marketing services</h2>
+      <p className="mt-3 text-white/70 leading-relaxed">
+        We serve businesses in El Paso, Texas with website design and development, local SEO strategy,
+        Google Ads management, landing pages, and conversion tracking. If you want more calls, better
+        visibility, and a site that actually performs, we’ll map a clean plan and build the system.
+      </p>
+
+      <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <Link
+          to="/contact"
+          className="inline-flex items-center justify-center rounded-xl bg-white px-7 py-3 font-semibold text-blue-900 transition hover:bg-blue-50"
+        >
+          Get a plan
+        </Link>
+        <span className="text-sm text-white/55">Quick reply.</span>
       </div>
     </section>
   );
@@ -218,21 +312,32 @@ export default function Services() {
   return (
     <main className="min-h-screen bg-[#020617] text-white">
       <div className="relative overflow-hidden">
-        {/* ✅ softer grid */}
+        {/* background */}
         <div className="pointer-events-none absolute inset-0 opacity-[0.04] [background-image:linear-gradient(to_right,white_1px,transparent_1px),linear-gradient(to_bottom,white_1px,transparent_1px)] [background-size:54px_54px]" />
         <div className="pointer-events-none absolute -top-40 left-[-140px] h-[520px] w-[520px] rounded-full bg-purple-500/18 blur-[95px]" />
         <div className="pointer-events-none absolute top-10 right-[-160px] h-[520px] w-[520px] rounded-full bg-sky-500/16 blur-[95px]" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/15 via-transparent to-black/35" />
 
-        <div className="relative mx-auto max-w-6xl px-6 py-20 sm:py-24 space-y-14">
+        <div className="relative mx-auto max-w-6xl px-6 py-16 sm:py-20 space-y-12">
           <header className="space-y-4">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/25 px-3 py-1 text-xs text-white/70">
+              <span className="h-2 w-2 rounded-full bg-sky-300 shadow-[0_0_14px_rgba(56,189,248,0.7)]" />
+              Services
+            </div>
+
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-              Services built for growth
+              Marketing services built for{" "}
+              <span className="bg-gradient-to-r from-sky-200 via-blue-200 to-purple-200 bg-clip-text text-transparent">
+                real lead growth
+              </span>
             </h1>
+
             <p className="max-w-2xl text-lg text-white/70">
-              NeuroStack builds high-performance websites and local growth systems
-              for service businesses. Clean design, technical SEO, and conversion
-              structure — built to scale.
+              Stratum Marketing builds websites, local SEO, and Google Ads systems that generate calls and
+              form submissions — with tracking so you can scale confidently.
             </p>
+
+            <ProofRow />
           </header>
 
           <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -241,31 +346,23 @@ export default function Services() {
             ))}
           </section>
 
-          {/* ✅ USE ParallaxBlock so TS doesn't fail the build */}
-          <ParallaxBlock
-            eyebrow="Our approach"
-            title="Local-first websites that rank and convert"
-            body="We build websites that help people in your area find you, trust you, and contact you. That means service + location structure, clean technical SEO, fast load times, and a conversion path that doesn’t waste attention."
-            bullets={[
-              "Service + city pages for local SEO",
-              "High-trust layouts that convert",
-              "Core Web Vitals performance focus",
-            ]}
-            accent="purple"
-          />
+          <InevitableBlock />
+
+          <EngagementPaths />
+
+          <LocalSEOBlock />
 
           <section className="rounded-2xl border border-white/10 bg-white/5 p-8 text-center">
-            <h2 className="text-2xl font-semibold">Want a build plan?</h2>
+            <h2 className="text-2xl font-semibold">Want a clear plan?</h2>
             <p className="mt-2 text-white/70">
-              Tell us what you do and where you operate — we’ll map the fastest
-              path to a site that performs.
+              Tell us what you do and where you operate — we’ll recommend the fastest path to results.
             </p>
             <div className="mt-6">
               <Link
                 to="/contact"
                 className="inline-flex items-center justify-center rounded-xl bg-white px-7 py-3 font-semibold text-blue-900 transition hover:bg-blue-50"
               >
-                Contact NeuroStack
+                Contact Stratum Marketing
               </Link>
             </div>
           </section>

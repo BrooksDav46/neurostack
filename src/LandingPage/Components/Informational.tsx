@@ -1,13 +1,13 @@
 // src/LandingPage/Components/Informational.tsx
-// import React from "react";
 import bg from "../../assets/Section_Image.png";
 
 export default function Informational() {
+  // ✅ Tight copy (same height as before) + real Stratum offers
   const bullets = [
-    "Fast, modern, conversion-first design",
-    "SEO structure built into every page",
-    "Lead capture + automation ready",
-    "Clean code that scales long-term",
+    "Conversion-first websites + landing pages",
+    "Local SEO structure built in (on-page + GBP-ready)",
+    "Google Ads / PPC setup with tracking",
+    "Lead capture + follow-up automation ready",
   ];
 
   return (
@@ -80,15 +80,15 @@ export default function Informational() {
                 </div>
 
                 <h3 className="mt-6 text-3xl font-extrabold tracking-tight text-white">
-                  More than design —{" "}
+                  More than marketing —{" "}
                   <span className="bg-gradient-to-r from-purple-300 via-cyan-200 to-white bg-clip-text text-transparent">
                     a growth system
                   </span>
                 </h3>
 
                 <p className="mt-4 text-white/75 leading-relaxed">
-                  You’re not buying a “website.” You’re getting a conversion-focused system that
-                  attracts visitors, captures leads, and makes follow-up easy.
+                  You’re not buying “services.” You’re getting a lead system: website + SEO + Google Ads,
+                  built to convert and track results.
                 </p>
 
                 <div className="mt-9 space-y-3">
@@ -141,7 +141,7 @@ export default function Informational() {
 
                 {/* trust chips */}
                 <div className="mt-8 flex flex-wrap gap-2 text-xs text-white/75">
-                  {["Performance", "UX", "SEO", "Lead Capture", "Automations"].map((chip) => (
+                  {["Websites", "Local SEO", "Google Ads", "Lead Capture", "Tracking"].map((chip) => (
                     <span
                       key={chip}
                       className="rounded-full bg-white/10 px-3 py-1.5 ring-1 ring-white/15 backdrop-blur"
@@ -158,39 +158,38 @@ export default function Informational() {
           <div className="flex items-center">
             <div className="max-w-xl">
               <div className="inline-flex items-center rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold text-white/85 ring-1 ring-white/15 backdrop-blur">
-                How we build
+                How we grow
               </div>
 
               <h3 className="mt-5 text-3xl font-extrabold tracking-tight text-white">
-                Websites built to{" "}
+                Digital marketing that{" "}
                 <span className="bg-gradient-to-r from-cyan-200 via-blue-200 to-purple-200 bg-clip-text text-transparent">
-                  rank & convert
+                  ranks & converts
                 </span>
               </h3>
 
               <p className="mt-4 text-white/70 leading-relaxed">
-                Every project we take on is designed with performance, user experience, and business
-                goals in mind. Modern web development is about more than visuals — it’s about
-                creating a digital system that helps your company grow.
+                Stratum Marketing builds complete lead systems for local businesses: high-performance
+                websites, local SEO, and Google Ads—working together to drive calls and form leads.
               </p>
 
               <p className="mt-4 text-white/70 leading-relaxed">
-                From clean code and responsive layouts to advanced SEO strategies and lead generation
-                tools, we combine development and marketing into one powerful solution.
+                We set up tracking so you know what’s producing results, then optimize month over month
+                to increase conversions and lower cost per lead.
               </p>
 
               <p className="mt-4 text-white/70 leading-relaxed">
-                Whether you need a brand-new site, a redesign, or a full digital platform, our
-                approach ensures your website becomes a real asset — not just an online brochure.
+                If you want predictable growth, we build the foundation and run the engine—so your
+                marketing becomes a reliable source of new business.
               </p>
 
               {/* mini highlight list */}
               <div className="mt-8 grid gap-3 sm:grid-cols-2">
                 {[
-                  ["Fast builds", "Clean code + speed"],
-                  ["SEO ready", "Structure + metadata"],
-                  ["Lead capture", "Forms + follow-up"],
-                  ["Scales with you", "Easy to expand"],
+                  ["Websites", "Landing pages that convert"],
+                  ["Local SEO", "On-page + Google Maps ready"],
+                  ["Google Ads", "High-intent leads fast"],
+                  ["Tracking", "Calls + forms + reporting"],
                 ].map(([t, d]) => (
                   <div
                     key={t}

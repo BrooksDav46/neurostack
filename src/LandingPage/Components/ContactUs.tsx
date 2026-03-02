@@ -4,10 +4,13 @@ import { useForm, ValidationError } from "@formspree/react";
 export default function ContactUs() {
   const [state, handleSubmit] = useForm("mpqpllgj");
 
-  // Success state (keeps your branding + looks premium)
+  // =========================
+  // SUCCESS STATE
+  // =========================
   if (state.succeeded) {
     return (
       <section id="contact" className="relative w-full bg-slate-950 text-white">
+        {/* Background */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900" />
           <div className="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-blue-600/25 blur-3xl" />
@@ -23,19 +26,23 @@ export default function ContactUs() {
           <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-transparent to-slate-950" />
         </div>
 
-        <div className="relative mx-auto w-full max-w-screen-2xl px-6 py-24">
-          <div className="mx-auto max-w-2xl overflow-hidden rounded-3xl bg-white/5 p-10 text-center ring-1 ring-white/10">
+        {/* ↓ reduced section height */}
+        <div className="relative mx-auto w-full max-w-screen-2xl px-6 py-16 sm:py-20">
+          {/* ↓ slightly tighter card padding */}
+          <div className="mx-auto max-w-2xl overflow-hidden rounded-3xl bg-white/5 p-8 sm:p-10 text-center ring-1 ring-white/10">
             <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 ring-1 ring-white/10">
               <span className="text-2xl">✅</span>
             </div>
-            <h2 className="mt-6 text-3xl font-extrabold tracking-tight sm:text-4xl">
-              Request sent
+
+            <h2 className="mt-5 text-3xl font-extrabold tracking-tight sm:text-4xl">
+              Message received
             </h2>
+
             <p className="mt-3 text-base text-slate-200">
-              We got your message — we’ll reply soon with a clear plan, timeline, and pricing
-              range.
+              We got your request — we’ll reply soon with next steps and a simple plan.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
+
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:justify-center">
               <a
                 href="/"
                 className="inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg transition hover:bg-slate-100 active:scale-[0.99]"
@@ -55,16 +62,16 @@ export default function ContactUs() {
     );
   }
 
+  // =========================
+  // DEFAULT FORM STATE
+  // =========================
   return (
     <section id="contact" className="relative w-full bg-slate-950 text-white">
       {/* Background */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* soft gradient wash */}
         <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900" />
-        {/* glow blobs */}
         <div className="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-blue-600/25 blur-3xl" />
         <div className="absolute -bottom-28 -right-28 h-96 w-96 rounded-full bg-sky-500/20 blur-3xl" />
-        {/* subtle grid */}
         <div
           className="absolute inset-0 opacity-[0.12]"
           style={{
@@ -73,136 +80,145 @@ export default function ContactUs() {
             backgroundSize: "26px 26px",
           }}
         />
-        {/* vignette */}
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-transparent to-slate-950" />
       </div>
 
-      <div className="relative mx-auto w-full max-w-screen-2xl px-6 py-20">
+      {/* ↓ reduced overall section height */}
+      <div className="relative mx-auto w-full max-w-screen-2xl px-6 py-14 sm:py-16">
         {/* Top header */}
         <div className="mx-auto max-w-3xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1 text-sm font-semibold text-sky-200 ring-1 ring-white/10">
             Let’s Build Something Real
           </span>
 
-          <h2 className="mt-5 text-4xl font-extrabold tracking-tight sm:text-5xl">
+          {/* ↓ slightly smaller headline to reduce height */}
+          <h2 className="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl">
             Contact{" "}
             <span className="bg-gradient-to-r from-sky-300 to-blue-400 bg-clip-text text-transparent">
-              NeuroStack
+              Stratum Marketing
             </span>
           </h2>
 
-          <p className="mt-4 text-base leading-relaxed text-slate-200 sm:text-lg">
-            Tell us what you’re trying to achieve and what’s not working today. We’ll reply with
-            a clear plan, timeline, and pricing range — no fluff.
+          {/* ↓ slightly tighter paragraph */}
+          <p className="mt-3 text-base leading-relaxed text-slate-200 sm:text-lg">
+            Tell us what you’re trying to achieve. We’ll reply with clear next steps to help you
+            get more traffic, leads, and customers in El Paso.
           </p>
         </div>
 
         {/* Main grid */}
-        <div className="mt-12 grid gap-8 lg:grid-cols-[1fr_1.05fr]">
+        {/* ↓ reduced top margin + reduced gap */}
+        <div className="mt-9 grid gap-6 lg:grid-cols-[1fr_1.05fr]">
           {/* Left: Value + details */}
-          <div className="relative overflow-hidden rounded-3xl bg-white/5 p-8 ring-1 ring-white/10">
+          {/* ↓ reduced padding */}
+          <div className="relative overflow-hidden rounded-3xl bg-white/5 p-7 ring-1 ring-white/10">
             <div className="pointer-events-none absolute -right-20 -top-24 h-64 w-64 rounded-full bg-blue-500/15 blur-3xl" />
 
-            <h3 className="text-2xl font-bold">What you get</h3>
+            <h3 className="text-xl font-bold sm:text-2xl">What you get</h3>
+
             <p className="mt-2 text-slate-200">
-              A conversion-first build with technical SEO baked in — designed to look premium and
-              generate leads.
+              A complete growth system — high-performance websites, local SEO, and Google Ads —
+              designed to generate real leads (calls, forms, bookings), not just impressions.
             </p>
 
-            <div className="mt-6 grid gap-4 sm:grid-cols-2">
-              <div className="rounded-2xl bg-white/5 p-5 ring-1 ring-white/10">
-                <div className="text-sm font-semibold text-sky-200">Fast launch</div>
+            {/* ↓ tighter spacing */}
+            <div className="mt-5 grid gap-3 sm:grid-cols-2">
+              <div className="rounded-2xl bg-white/5 p-4 ring-1 ring-white/10">
+                <div className="text-sm font-semibold text-sky-200">Websites</div>
                 <div className="mt-1 text-sm text-slate-200">
-                  Typical build: <span className="font-semibold text-white">7–14 days</span>
+                  Conversion-focused pages built to turn visitors into customers
                 </div>
               </div>
-              <div className="rounded-2xl bg-white/5 p-5 ring-1 ring-white/10">
-                <div className="text-sm font-semibold text-sky-200">Performance</div>
+
+              <div className="rounded-2xl bg-white/5 p-4 ring-1 ring-white/10">
+                <div className="text-sm font-semibold text-sky-200">Local SEO</div>
                 <div className="mt-1 text-sm text-slate-200">
-                  Core Web Vitals-focused:{" "}
-                  <span className="font-semibold text-white">speed + UX</span>
+                  Technical + on-page structure to rank in El Paso searches
                 </div>
               </div>
-              <div className="rounded-2xl bg-white/5 p-5 ring-1 ring-white/10">
-                <div className="text-sm font-semibold text-sky-200">SEO-ready</div>
+
+              <div className="rounded-2xl bg-white/5 p-4 ring-1 ring-white/10">
+                <div className="text-sm font-semibold text-sky-200">Google Ads</div>
                 <div className="mt-1 text-sm text-slate-200">
-                  Schema, structure, metadata, internal links
+                  High-intent PPC campaigns tuned for cost per lead
                 </div>
               </div>
-              <div className="rounded-2xl bg-white/5 p-5 ring-1 ring-white/10">
-                <div className="text-sm font-semibold text-sky-200">Lead capture</div>
+
+              <div className="rounded-2xl bg-white/5 p-4 ring-1 ring-white/10">
+                <div className="text-sm font-semibold text-sky-200">Tracking</div>
                 <div className="mt-1 text-sm text-slate-200">
-                  Forms, booking, CRM/Zapier automations
+                  Calls + forms tracked so you know what’s working
                 </div>
               </div>
             </div>
 
-            <div className="mt-7 rounded-2xl bg-gradient-to-r from-blue-600/20 via-sky-500/10 to-transparent p-5 ring-1 ring-white/10">
+            {/* ↓ tighter spacing */}
+            <div className="mt-5 rounded-2xl bg-gradient-to-r from-blue-600/20 via-sky-500/10 to-transparent p-4 ring-1 ring-white/10">
               <div className="text-sm font-semibold text-white">Good fit if you want:</div>
               <ul className="mt-3 space-y-2 text-sm text-slate-200">
                 <li className="flex gap-3">
                   <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/10 text-sky-200">
                     ✓
                   </span>
-                  A premium site that doesn’t feel “template”
+                  A premium brand presence that builds trust immediately
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/10 text-sky-200">
                     ✓
                   </span>
-                  A site built to generate calls + booked appointments
+                  Leads from Google (Maps + Search + Ads) — not random traffic
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/10 text-sky-200">
                     ✓
                   </span>
-                  Clean code you can scale later (not a dead-end build)
+                  A system you can scale month over month with real reporting
                 </li>
               </ul>
             </div>
 
-            <div className="mt-7 flex flex-wrap gap-2">
-              {["Strategy first", "Mobile-first", "Clean UI", "SEO + speed", "Automations"].map(
-                (t) => (
-                  <span
-                    key={t}
-                    className="rounded-full bg-white/5 px-3 py-1 text-xs font-semibold text-slate-200 ring-1 ring-white/10"
-                  >
-                    {t}
-                  </span>
-                )
-              )}
+            <div className="mt-5 flex flex-wrap gap-2">
+              {["Websites", "Local SEO", "Google Ads", "Lead Capture", "Tracking"].map((t) => (
+                <span
+                  key={t}
+                  className="rounded-full bg-white/5 px-3 py-1 text-xs font-semibold text-slate-200 ring-1 ring-white/10"
+                >
+                  {t}
+                </span>
+              ))}
             </div>
 
-            <div className="mt-8 text-xs text-slate-300">
+            <div className="mt-6 text-xs text-slate-300">
               Response time: typically{" "}
-              <span className="font-semibold text-white">within 24 hours</span>. No spam. No
-              pressure.
+              <span className="font-semibold text-white">within 24 hours</span>.
             </div>
           </div>
 
-          {/* Right: Form */}
-          <div className="relative overflow-hidden rounded-3xl bg-white p-8 text-slate-900 shadow-[0_30px_90px_rgba(2,6,23,0.45)] ring-1 ring-white/10">
-            {/* faux window bar */}
-            <div className="mb-6 flex items-center gap-2">
+          {/* Right: Form (smaller + tighter) */}
+          {/* ↓ smaller max width + smaller padding */}
+          <div className="relative mx-auto w-full max-w-[600px] overflow-hidden rounded-3xl bg-white p-6 sm:p-7 text-slate-900 shadow-[0_30px_90px_rgba(2,6,23,0.45)] ring-1 ring-white/10">
+            <div className="mb-4 flex items-center gap-2">
               <span className="h-3 w-3 rounded-full bg-red-400" />
               <span className="h-3 w-3 rounded-full bg-yellow-400" />
               <span className="h-3 w-3 rounded-full bg-green-400" />
               <span className="ml-auto text-xs font-semibold text-slate-500">Project Intake</span>
             </div>
 
-            <h3 className="text-2xl font-extrabold tracking-tight">
-              Get a quote + plan <span className="font-semibold text-slate-400">(fast)</span>
+            {/* ↓ slightly smaller title + tighter spacing */}
+            <h3 className="text-xl font-extrabold tracking-tight sm:text-2xl">
+              Start your growth plan <span className="font-semibold text-slate-400">(fast)</span>
             </h3>
+
             <p className="mt-2 text-sm text-slate-600">
-              Share the basics and we’ll respond with a next step + clear options.
+              Share the basics and we’ll respond with next steps to improve your traffic, leads, and
+              conversions in El Paso.
             </p>
 
-            {/* Formspree hook form */}
-            <form className="mt-7 space-y-4" onSubmit={handleSubmit}>
-              <input type="hidden" name="source" value="NeuroStack Website" />
+            {/* ↓ tighter top margin + smaller spacing */}
+            <form className="mt-5 space-y-3.5" onSubmit={handleSubmit}>
+              <input type="hidden" name="source" value="Stratum Marketing Website" />
 
-              <div className="grid gap-4 sm:grid-cols-2">
+              <div className="grid gap-3.5 sm:grid-cols-2">
                 <div>
                   <label htmlFor="name" className="text-xs font-semibold text-slate-600">
                     Name
@@ -214,7 +230,7 @@ export default function ContactUs() {
                     placeholder="Your name"
                     required
                     autoComplete="name"
-                    className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-blue-400 focus:ring-4 focus:ring-blue-100"
+                    className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm outline-none transition focus:border-blue-400 focus:ring-4 focus:ring-blue-100"
                   />
                 </div>
 
@@ -229,13 +245,13 @@ export default function ContactUs() {
                     placeholder="you@company.com"
                     required
                     autoComplete="email"
-                    className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-blue-400 focus:ring-4 focus:ring-blue-100"
+                    className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm outline-none transition focus:border-blue-400 focus:ring-4 focus:ring-blue-100"
                   />
                   <ValidationError prefix="Email" field="email" errors={state.errors} />
                 </div>
               </div>
 
-              <div className="grid gap-4 sm:grid-cols-2">
+              <div className="grid gap-3.5 sm:grid-cols-2">
                 <div>
                   <label htmlFor="phone" className="text-xs font-semibold text-slate-600">
                     Phone (optional)
@@ -246,7 +262,7 @@ export default function ContactUs() {
                     type="tel"
                     placeholder="(555) 555-5555"
                     autoComplete="tel"
-                    className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-blue-400 focus:ring-4 focus:ring-blue-100"
+                    className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm outline-none transition focus:border-blue-400 focus:ring-4 focus:ring-blue-100"
                   />
                 </div>
 
@@ -260,60 +276,40 @@ export default function ContactUs() {
                     type="url"
                     placeholder="https://"
                     autoComplete="url"
-                    className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-blue-400 focus:ring-4 focus:ring-blue-100"
+                    className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm outline-none transition focus:border-blue-400 focus:ring-4 focus:ring-blue-100"
                   />
                 </div>
               </div>
 
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div>
-                  <label htmlFor="service" className="text-xs font-semibold text-slate-600">
-                    Service
-                  </label>
-                  <select
-                    id="service"
-                    name="service"
-                    defaultValue="New Website Build"
-                    className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-blue-400 focus:ring-4 focus:ring-blue-100"
-                  >
-                    <option>New Website Build</option>
-                    <option>Redesign</option>
-                    <option>SEO Fixes</option>
-                    <option>Landing Page + Ads</option>
-                    <option>Lead Capture + Automations</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label htmlFor="budget" className="text-xs font-semibold text-slate-600">
-                    Budget range
-                  </label>
-                  <select
-                    id="budget"
-                    name="budget"
-                    defaultValue="$1k – $3k"
-                    className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-blue-400 focus:ring-4 focus:ring-blue-100"
-                  >
-                    <option>$1k – $3k</option>
-                    <option>$3k – $7k</option>
-                    <option>$7k – $15k</option>
-                    <option>$15k+</option>
-                    <option>Not sure yet</option>
-                  </select>
-                </div>
+              <div>
+                <label htmlFor="service" className="text-xs font-semibold text-slate-600">
+                  Service
+                </label>
+                <select
+                  id="service"
+                  name="service"
+                  defaultValue="Website + Local SEO"
+                  className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm outline-none transition focus:border-blue-400 focus:ring-4 focus:ring-blue-100"
+                >
+                  <option>Website + Local SEO</option>
+                  <option>SEO Only</option>
+                  <option>Google Ads / PPC</option>
+                  <option>Website Redesign</option>
+                  <option>Landing Page + Ads Funnel</option>
+                </select>
               </div>
 
               <div>
                 <label htmlFor="message" className="text-xs font-semibold text-slate-600">
-                  Project details (goals, pages, timeline, what’s broken)
+                  Project details (goal, timeline, what’s not working)
                 </label>
                 <textarea
                   id="message"
                   name="message"
-                  rows={5}
+                  rows={4}
                   required
-                  placeholder="Example: I need a lead-gen site for my service business. I want a premium look, local SEO pages, and a quote form that routes to my CRM..."
-                  className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-blue-400 focus:ring-4 focus:ring-blue-100"
+                  placeholder="Example: I want to rank in El Paso and get more calls. I need a better website, local SEO pages, and Google Ads to drive leads..."
+                  className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm outline-none transition focus:border-blue-400 focus:ring-4 focus:ring-blue-100"
                 />
                 <ValidationError prefix="Message" field="message" errors={state.errors} />
               </div>
@@ -321,7 +317,7 @@ export default function ContactUs() {
               <button
                 type="submit"
                 disabled={state.submitting}
-                className="w-full rounded-xl bg-blue-700 px-5 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-blue-800 disabled:cursor-not-allowed disabled:opacity-60 active:scale-[0.99]"
+                className="w-full rounded-xl bg-blue-700 px-5 py-2.5 text-sm font-semibold text-white shadow-lg transition hover:bg-blue-800 disabled:cursor-not-allowed disabled:opacity-60 active:scale-[0.99]"
               >
                 {state.submitting ? "Sending..." : "Send request →"}
               </button>
@@ -336,9 +332,25 @@ export default function ContactUs() {
           </div>
         </div>
 
+        {/* SEO Authority (hidden, helps local relevance) */}
+        <div className="sr-only">
+          <h2>El Paso Digital Marketing Agency</h2>
+          <p>
+            Stratum Marketing is a digital marketing agency in El Paso, Texas offering website
+            development, local SEO, Google Ads management, PPC campaigns, and lead generation for
+            service businesses. We help companies grow with conversion-focused websites, search
+            engine optimization, and paid search advertising.
+          </p>
+          <p>
+            If you’re looking for digital marketing in El Paso, TX including SEO services, Google
+            Ads PPC, and modern web design, contact Stratum Marketing to request a strategy call.
+          </p>
+        </div>
+
         {/* Bottom strip */}
-        <div className="mt-10 rounded-3xl bg-white/5 px-6 py-5 ring-1 ring-white/10">
-          <div className="flex flex-col items-center justify-between gap-4 text-center sm:flex-row sm:text-left">
+        {/* ↓ reduced top margin + tighter padding */}
+        <div className="mt-7 rounded-3xl bg-white/5 px-6 py-4 ring-1 ring-white/10">
+          <div className="flex flex-col items-center justify-between gap-3 text-center sm:flex-row sm:text-left">
             <div>
               <div className="text-sm font-semibold text-white">Prefer a quick call?</div>
               <div className="mt-1 text-sm text-slate-200">
@@ -348,7 +360,7 @@ export default function ContactUs() {
 
             <a
               href="#contact"
-              className="inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg transition hover:bg-slate-100 active:scale-[0.99]"
+              className="inline-flex items-center justify-center rounded-xl bg-white px-6 py-2.5 text-sm font-semibold text-slate-900 shadow-lg transition hover:bg-slate-100 active:scale-[0.99]"
             >
               Book a strategy call →
             </a>

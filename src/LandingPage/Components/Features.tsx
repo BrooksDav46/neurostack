@@ -3,26 +3,26 @@
 
 const items = [
   {
-    title: "Custom Web Development",
-    desc: "Fast, modern builds with clean code, scalable structure, and conversion-first layouts.",
-    bullets: ["React / Next-ready", "Clean architecture", "Built to scale"],
-    tag: "Sky + Indie",
-    bump: "lg:translate-y-8", // ✅ subtle stagger DOWN (no negatives)
+    title: "Conversion-Focused Websites",
+    desc: "High-performance websites built to turn visitors into leads — fast, modern, and mobile-first.",
+    bullets: ["Custom design + build", "Speed + Core Web Vitals", "Lead forms + tracking-ready"],
+    tag: "Websites",
+    bump: "lg:translate-y-8",
   },
   {
-    title: "Responsive Design",
-    desc: "Pixel-perfect UI that feels premium on desktop, tablet, and mobile — no weird spacing.",
-    bullets: ["Mobile-first", "Accessible UI", "Modern components"],
-    tag: "Mobile-first",
-    bump: "lg:translate-y-14", // ✅ featured sits lower (center focus)
+    title: "Local SEO That Brings Calls",
+    desc: "Rank higher in Google and Maps with technical SEO + content that drives consistent local leads.",
+    bullets: ["Google Business Profile optimization", "On-page SEO + site structure", "Content + local relevance"],
+    tag: "SEO",
+    bump: "lg:translate-y-14",
     featured: true,
   },
   {
-    title: "SEO + Performance",
-    desc: "Technical SEO + speed improvements so you rank locally and turn traffic into leads.",
-    bullets: ["Core Web Vitals", "Schema + headings", "On-page structure"],
-    tag: "Growth-ready",
-    bump: "lg:translate-y-10", // ✅ slightly lower than left
+    title: "Google Ads / PPC Management",
+    desc: "Launch campaigns that generate immediate leads — with conversion tracking and ROI-focused optimization.",
+    bullets: ["High-intent keyword targeting", "Landing pages that convert", "Conversion tracking + reporting"],
+    tag: "Google Ads",
+    bump: "lg:translate-y-10",
   },
 ];
 

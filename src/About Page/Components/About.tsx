@@ -11,14 +11,19 @@ export default function About() {
           <div className="absolute -top-32 left-[-120px] h-[520px] w-[520px] rounded-full bg-purple-500/20 blur-[90px]" />
           <div className="absolute top-10 right-[-140px] h-[520px] w-[520px] rounded-full bg-sky-500/18 blur-[90px]" />
           <div className="absolute bottom-[-220px] left-[20%] h-[520px] w-[520px] rounded-full bg-indigo-500/16 blur-[110px]" />
+
           {/* faint grid */}
           <div className="absolute inset-0 opacity-[0.07] [background-image:linear-gradient(to_right,white_1px,transparent_1px),linear-gradient(to_bottom,white_1px,transparent_1px)] [background-size:54px_54px]" />
+
+          {/* subtle vignette so the grid feels intentional */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-black/45" />
         </div>
 
-        <div className="relative mx-auto max-w-6xl px-6 py-24 sm:py-28">
+        {/* ↓ reduced page padding so it’s not so tall */}
+        <div className="relative mx-auto max-w-6xl px-6 py-16 sm:py-20">
           {/* Header */}
-          <section className="grid gap-10 lg:grid-cols-12 lg:items-start">
-            <div className="lg:col-span-7 space-y-6">
+          <section className="grid gap-8 lg:grid-cols-12 lg:items-start">
+            <div className="lg:col-span-7 space-y-5">
               <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2">
                 <span className="h-2 w-2 rounded-full bg-sky-400 shadow-[0_0_18px_rgba(56,189,248,0.7)]" />
                 <span className="text-sm text-white/75">
@@ -26,8 +31,9 @@ export default function About() {
                 </span>
               </div>
 
+              {/* ↓ slightly smaller headline for better proportion */}
               <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-                Welcome to <span className="text-sky-300">NeuroStack</span>
+                Welcome to <span className="text-sky-300">Stratum Marketing</span>
               </h1>
 
               <p className="text-lg leading-relaxed text-white/70">
@@ -36,12 +42,11 @@ export default function About() {
                 get found, earn trust, and turn traffic into booked jobs.
               </p>
 
-              {/* Local SEO friendly line without being cringe */}
+              {/* tightened + less repetitive */}
               <p className="text-white/60 leading-relaxed">
-                If you’re a business owner in your area and you want a site that
-                loads fast, ranks locally, and actually converts — you’re home.
-                NeuroStack is built around clean design, technical SEO, and
-                systems that scale as you grow.
+                If you want a site that loads fast, ranks locally, and turns visits into real
+                inquiries, we build the full path — clean design, technical SEO, and conversion
+                structure that scales with you.
               </p>
 
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -63,32 +68,28 @@ export default function About() {
 
             {/* Right-side “identity” cards */}
             <div className="lg:col-span-5">
-              <div className="grid gap-5">
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.04)]">
-                  <div className="mb-3 text-sm font-semibold text-white/80">
-                    Who we are
-                  </div>
+              {/* ↓ tighter spacing + slightly smaller padding */}
+              <div className="grid gap-4">
+                <div className="rounded-2xl border border-white/10 bg-white/5 p-5 shadow-[0_0_0_1px_rgba(255,255,255,0.04)]">
+                  <div className="mb-2 text-sm font-semibold text-white/80">Who we are</div>
                   <p className="text-white/65 leading-relaxed">
-                    NeuroStack is a systems-first web studio. We don’t just “make
-                    a website.” We engineer the full path from search → trust →
-                    lead → booking.
+                    Stratum Marketing is a systems-first web studio. We engineer the full path from{" "}
+                    <span className="text-white/80">search → trust → lead → booking</span>.
                   </p>
                 </div>
 
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-                  <div className="mb-3 text-sm font-semibold text-white/80">
-                    Who we build for
-                  </div>
+                <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+                  <div className="mb-2 text-sm font-semibold text-white/80">Who we build for</div>
                   <p className="text-white/65 leading-relaxed">
-                    Contractors, home services, local pros, and growing teams who
-                    want a premium brand presence and consistent leads.
+                    Contractors, home services, local pros, and growing teams who want a premium
+                    brand presence and consistent lead flow.
                   </p>
                 </div>
 
-                <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-purple-500/12 via-white/5 to-sky-500/12 p-6">
-                  <div className="mb-3 text-sm font-semibold text-white/80">
-                    What we care about
-                  </div>
+                <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-purple-500/12 via-white/5 to-sky-500/12 p-5">
+                  <div className="mb-3 text-sm font-semibold text-white/80">What we care about</div>
+
+                  {/* ↓ more compact */}
                   <div className="grid grid-cols-2 gap-3 text-sm">
                     <div className="rounded-xl border border-white/10 bg-black/20 p-3">
                       <div className="font-semibold text-white">Speed</div>
@@ -113,14 +114,13 @@ export default function About() {
           </section>
 
           {/* Unique “Approach” layout */}
-          <section className="mt-16 sm:mt-20">
+          {/* ↓ reduced top spacing */}
+          <section className="mt-12 sm:mt-16">
             <div className="flex items-end justify-between gap-6">
               <div className="space-y-2">
-                <h2 className="text-3xl font-semibold">
-                  Our approach to business growth
-                </h2>
+                <h2 className="text-3xl font-semibold">Our approach to business growth</h2>
                 <p className="max-w-2xl text-white/65">
-                  A site should be a revenue system. Here’s how we build it.
+                  A site should act like a revenue system. Here’s how we build it.
                 </p>
               </div>
 
@@ -129,7 +129,8 @@ export default function About() {
               </div>
             </div>
 
-            <div className="mt-8 grid gap-6 lg:grid-cols-3">
+            {/* ↓ slightly tighter spacing */}
+            <div className="mt-7 grid gap-5 lg:grid-cols-3">
               {/* Box 1 */}
               <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6">
                 <div className="pointer-events-none absolute -top-24 left-10 h-48 w-48 rounded-full bg-sky-500/15 blur-[70px] transition group-hover:bg-sky-500/22" />
@@ -140,9 +141,8 @@ export default function About() {
                   <h3 className="text-lg font-semibold">Local SEO foundation</h3>
                 </div>
                 <p className="text-white/65 leading-relaxed">
-                  Proper headings, internal structure, service + location
-                  targeting, and clean technical SEO so Google understands what
-                  you do and where you do it.
+                  Proper headings, internal structure, service + location targeting, and clean
+                  technical SEO so Google understands what you do and where you do it.
                 </p>
                 <ul className="mt-4 space-y-2 text-sm text-white/60">
                   <li>• City/service page structure</li>
@@ -163,8 +163,8 @@ export default function About() {
                   <h3 className="text-lg font-semibold">Conversion-first design</h3>
                 </div>
                 <p className="text-white/65 leading-relaxed">
-                  Premium visuals are nice — but we design around what makes
-                  people act: clarity, proof, and a frictionless path to contact.
+                  Premium visuals are nice — but we design around what makes people act: clarity,
+                  proof, and a frictionless path to contact.
                 </p>
                 <div className="mt-4 grid grid-cols-2 gap-3 text-sm">
                   <div className="rounded-xl border border-white/10 bg-black/25 p-3">
@@ -188,8 +188,8 @@ export default function About() {
                   <h3 className="text-lg font-semibold">Automation + tracking</h3>
                 </div>
                 <p className="text-white/65 leading-relaxed">
-                  We connect the dots: form routing, CRM handoff, analytics, and
-                  pipeline visibility so you know what’s working.
+                  We connect the dots: form routing, CRM handoff, analytics, and pipeline visibility
+                  so you know what’s working.
                 </p>
                 <ul className="mt-4 space-y-2 text-sm text-white/60">
                   <li>• Lead capture + routing</li>
@@ -201,16 +201,14 @@ export default function About() {
           </section>
 
           {/* Local SEO paragraph block */}
-          <section className="mt-16 sm:mt-20 rounded-2xl border border-white/10 bg-white/5 p-8">
-            <h2 className="text-2xl font-semibold">
-              Built for local SEO and real growth
-            </h2>
+          {/* ↓ reduced spacing + slightly tighter padding */}
+          <section className="mt-12 sm:mt-16 rounded-2xl border border-white/10 bg-white/5 p-7 sm:p-8">
+            <h2 className="text-2xl font-semibold">Built for local SEO and real growth</h2>
             <p className="mt-3 text-white/65 leading-relaxed">
-              NeuroStack builds websites that support local discovery — the kind
-              of structure that helps you show up when people search for your
-              services nearby. We focus on fast load times, clear service pages,
-              strong calls-to-action, and clean on-page SEO so your site becomes
-              an asset that compounds over time.
+              Stratum Marketing builds websites that support local discovery — the kind of structure that
+              helps you show up when people search for your services nearby. We focus on fast load
+              times, clear service pages, strong calls-to-action, and clean on-page SEO so your site
+              becomes an asset that compounds over time.
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
               <Link
@@ -219,11 +217,12 @@ export default function About() {
               >
                 Get a build plan
               </Link>
-              <span className="text-sm text-white/55">
-                Friendly, no-pressure conversation.
-              </span>
+              <span className="text-sm text-white/55">Friendly, no-pressure conversation.</span>
             </div>
           </section>
+
+          {/* Optional: tiny footer spacer so it doesn’t feel cut off */}
+          <div className="mt-10 sm:mt-12" />
         </div>
       </div>
     </main>

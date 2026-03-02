@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import PlumbingWebsite from "../../assets/Plumbing_Website.webp";
 import { useInView } from "../../hooks/useInView";
@@ -18,12 +17,13 @@ export default function WhyUs() {
 
   const motion = getRevealClasses("fadeLeft");
 
+  // ✅ Updated for Stratum Marketing: Websites + SEO + Google Ads/PPC
   const bullets = [
-    "Strategy-first approach focused on conversions",
-    "Fast, modern, mobile-optimized builds",
-    "SEO structure built into every page (schema + headings + metadata)",
-    "Automations that follow up (forms, booking, CRM/Zapier)",
-    "Clean code that grows with your business",
+    "Websites built to convert visitors into real leads",
+    "Local SEO + Google Business Profile optimization to rank in Maps",
+    "Google Ads / PPC campaigns for immediate lead flow",
+    "Conversion tracking (calls, forms, bookings) so you know what’s working",
+    "Ongoing optimization focused on ROI — not vanity metrics",
   ];
 
   return (
@@ -62,19 +62,19 @@ export default function WhyUs() {
                   <span className="h-3 w-3 rounded-full bg-yellow-400" />
                   <span className="h-3 w-3 rounded-full bg-green-400" />
                   <span className="ml-auto text-xs font-semibold text-white/60">
-                    Website + analytics preview
+                    website + SEO + ads preview
                   </span>
                 </div>
 
                 <div className="p-5 sm:p-6">
                   <img
                     src={PlumbingWebsite}
-                    alt="Client website preview and performance snapshot"
+                    alt="Client marketing system preview"
                     className="h-auto w-full rounded-2xl object-cover ring-1 ring-white/10"
                   />
 
                   <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1.5 text-xs font-semibold text-white/80 ring-1 ring-white/15 backdrop-blur">
-                    Built for speed &amp; conversions
+                    Built for leads &amp; ROI
                   </div>
                 </div>
 
@@ -89,19 +89,19 @@ export default function WhyUs() {
             {/* RIGHT CONTENT */}
             <div className="max-w-xl">
               <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-semibold text-white ring-1 ring-white/15 backdrop-blur">
-                Why Choose Us
+                Why Businesses Choose Stratum
               </span>
 
               <h2 className="mt-5 text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
-                More than a website —{" "}
+                More than marketing —{" "}
                 <span className="bg-gradient-to-r from-sky-300 via-purple-300 to-cyan-200 bg-clip-text text-transparent">
-                  a growth system
+                  a complete growth system
                 </span>
               </h2>
 
               <p className="mt-4 text-base leading-relaxed text-white/70">
-                We don’t just design pages. We build high-performance websites that attract visitors,
-                convert them into leads, and make it easy to follow up — so your business can scale.
+                We don’t just build websites. We combine conversion-focused web design, local SEO, and Google Ads
+                to generate consistent leads — with tracking in place so you can see what’s working and scale with confidence.
               </p>
 
               {/* Bullets */}
@@ -145,7 +145,7 @@ export default function WhyUs() {
                 ].join(" ")}
               >
                 <span className="text-white/60">“</span>
-                Our goal is to turn your website into your most reliable salesperson.
+                Our goal is to build a predictable lead system — and track it end-to-end so you can scale.
                 <span className="text-white/60">”</span>
               </div>
 
@@ -162,7 +162,7 @@ export default function WhyUs() {
                   href="#contact"
                   className="inline-flex items-center justify-center rounded-xl bg-orange-500 px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-orange-500/25 transition hover:brightness-110 active:scale-[0.99]"
                 >
-                  Start Your Project →
+                  Get a Free Strategy Call →
                 </a>
 
                 <a
@@ -173,9 +173,9 @@ export default function WhyUs() {
                 </a>
               </div>
 
-              {/* trust chips (add tiny purple halo) */}
+              {/* trust chips */}
               <div className="mt-6 flex flex-wrap gap-2 text-xs text-white/75">
-                {["Core Web Vitals", "SEO structure", "Lead capture", "Automations"].map((chip) => (
+                {["Websites", "Local SEO", "Google Ads", "Conversion Tracking"].map((chip) => (
                   <span
                     key={chip}
                     className="rounded-full bg-white/10 px-3 py-1.5 ring-1 ring-white/15 backdrop-blur"
