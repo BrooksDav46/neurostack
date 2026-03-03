@@ -52,7 +52,7 @@ export default function NavBar() {
                 <Link
                   to="/"
                   onClick={goHomeTop}
-                  className="flex items-center rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 translate-x-[30px] md:translate-x-0"
+                  className="flex items-center rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 translate-x-[20px] md:translate-x-0"
                   aria-label="Go to home"
                 >
                   <div className="h-12 md:h-14 w-[240px] md:w-[300px] overflow-hidden translate-y-[2px] md:translate-y-[3px]">
