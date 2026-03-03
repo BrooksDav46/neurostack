@@ -2,8 +2,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-
-// ✅ Make sure this matches your exact filename and casing in src/assets
 import stratumLogo from "../../assets/Stratum_Logo_no_bg.png";
 
 export default function NavBar() {
@@ -29,102 +27,103 @@ export default function NavBar() {
   return (
     <nav className="sticky top-0 z-50 w-full">
       <div className="relative w-full bg-[#0B1220]/70 backdrop-blur-xl">
-        {/* Neon bottom glow */}
+
+        {/* Glow */}
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-sky-300/70 to-transparent" />
         <div className="pointer-events-none absolute inset-x-0 -bottom-3 h-6 bg-gradient-to-b from-sky-400/25 to-transparent blur-2xl" />
 
-        {/* ✅ 3-column grid: left (logo), center (nav), right (cta) */}
-        <div className="mx-auto grid h-20 max-w-screen-2xl grid-cols-[1fr_auto_1fr] items-center px-6">
-          {/* LEFT: Mobile menu + Logo */}
-          <div className="flex items-center gap-3 justify-self-start">
-            {/* MOBILE MENU BUTTON */}
+        {/* Layout */}
+        <div className="mx-auto grid h-20 max-w-screen-2xl grid-cols-[auto_1fr_auto] md:grid-cols-[1fr_auto_1fr] items-center px-6">
+
+          {/* LEFT */}
+          <div className="flex items-center justify-self-start">
+            {/* Mobile Hamburger */}
             <button
               onClick={() => setOpen((v) => !v)}
               className="md:hidden inline-flex items-center justify-center rounded-lg p-2 text-white/90 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
               aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
-              aria-controls="mobile-nav"
             >
               {open ? <X size={28} /> : <Menu size={28} />}
             </button>
 
-            {/* BRAND / LOGO */}
+            {/* Desktop Logo */}
             <Link
               to="/"
               onClick={goHomeTop}
-              className="flex items-center rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
-              aria-label="Go to home"
+              className="hidden md:flex items-center rounded-lg focus-visible:ring-2 focus-visible:ring-white/40"
             >
-              {/* Fixed logo box prevents layout shift */}
-                <div className="h-12 md:h-14 w-[240px] md:w-[300px] overflow-hidden translate-y-[2px] md:translate-y-[3px]">
+              <div className="h-14 w-[300px] overflow-hidden">
                 <img
                   src={stratumLogo}
-                  alt="Stratum Marketing logo"
-                  className="h-full w-full object-cover object-left drop-shadow-[0_8px_20px_rgba(0,0,0,0.45)] select-none"
+                  alt="Stratum Marketing"
+                  className="h-full w-full object-contain object-left select-none"
                   draggable={false}
                 />
               </div>
             </Link>
           </div>
 
-          {/* CENTER: Desktop nav (TRULY centered) */}
-          <div className="hidden md:flex items-center gap-10 justify-self-center">
-            {links.map((item) => (
-              <Link
-                key={item.to}
-                to={item.to}
-                className="
-                  relative text-base font-semibold
-                  text-white/90
-                  transition
-                  hover:text-white
-                  focus-visible:text-white
-                  focus-visible:outline-none
-                  focus-visible:ring-2
-                  focus-visible:ring-white/40
-                  after:absolute after:left-0 after:-bottom-2 after:h-[2px] after:w-full
-                  after:origin-left after:scale-x-0 after:rounded-full after:bg-sky-300/90
-                  after:shadow-[0_0_18px_rgba(56,189,248,0.65)]
-                  after:transition-transform hover:after:scale-x-100
-                "
-              >
-                {item.label}
-              </Link>
-            ))}
+          {/* CENTER */}
+          <div className="flex items-center justify-center">
+
+            {/* Mobile Centered Logo */}
+            <Link
+              to="/"
+              onClick={goHomeTop}
+              className="md:hidden flex items-center justify-center"
+            >
+              <div className="h-10 w-[210px] overflow-hidden">
+                <img
+                  src={stratumLogo}
+                  alt="Stratum Marketing"
+                  className="h-full w-full object-contain object-center select-none"
+                  draggable={false}
+                />
+              </div>
+            </Link>
+
+            {/* Desktop Nav */}
+            <div className="hidden md:flex items-center gap-10">
+              {links.map((item) => (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  className="text-base font-semibold text-white/90 hover:text-white transition"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
           </div>
 
-          {/* RIGHT: Desktop CTA */}
-          <div className="justify-self-end">
+          {/* RIGHT */}
+          <div className="flex items-center justify-self-end">
+
+            {/* Mobile spacer (balances hamburger width) */}
+            <div className="md:hidden w-10" />
+
+            {/* Desktop CTA */}
             <Link
               to="/contact"
-              className="
-                hidden md:inline-flex items-center justify-center
-                rounded-xl bg-white px-7 py-3
-                text-base font-semibold text-blue-900
-                shadow-[0_18px_60px_rgba(2,6,23,0.30)]
-                ring-1 ring-white/50
-                hover:bg-blue-50 transition-all
-                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300
-              "
+              className="hidden md:inline-flex items-center justify-center rounded-xl bg-white px-7 py-3 text-base font-semibold text-blue-900 hover:bg-blue-50 transition"
             >
               Get Started
             </Link>
           </div>
+
         </div>
 
-        {/* MOBILE DROPDOWN */}
+        {/* Mobile Dropdown */}
         {open && (
-          <div
-            id="mobile-nav"
-            className="md:hidden border-t border-white/10 bg-slate-900/95 backdrop-blur-xl px-6 py-4"
-          >
+          <div className="md:hidden border-t border-white/10 bg-slate-900/95 backdrop-blur-xl px-6 py-4">
             <div className="flex flex-col gap-4">
               {links.map((item) => (
                 <Link
                   key={item.to}
                   to={item.to}
                   onClick={closeMenu}
-                  className="text-white/95 text-lg font-semibold hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 rounded-md px-1 py-1"
+                  className="text-white text-lg font-semibold"
                 >
                   {item.label}
                 </Link>
@@ -133,7 +132,7 @@ export default function NavBar() {
               <Link
                 to="/contact"
                 onClick={closeMenu}
-                className="mt-2 inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 text-sm font-semibold text-blue-900 shadow-lg ring-1 ring-white/50 hover:bg-blue-50 transition-all"
+                className="mt-2 inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 text-sm font-semibold text-blue-900"
               >
                 Get Started
               </Link>
