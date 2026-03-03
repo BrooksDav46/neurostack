@@ -49,14 +49,23 @@ export default function NavBar() {
             </button>
 
             {/* BRAND / LOGO */}
-            <Link
-        
-              to="/"
-              onClick={goHomeTop}
-              className="md:hidden flex items-center justify-center translate-x-[28px]"
->
+                <Link
+                  to="/"
+                  onClick={goHomeTop}
+                  className="flex items-center rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 translate-x-[30px] md:translate-x-0"
+                  aria-label="Go to home"
+                >
+                  <div className="h-12 md:h-14 w-[240px] md:w-[300px] overflow-hidden translate-y-[2px] md:translate-y-[3px]">
+                    <img
+                      src={stratumLogo}
+                      alt="Stratum Marketing logo"
+                      className="h-full w-full object-cover object-left drop-shadow-[0_8px_20px_rgba(0,0,0,0.45)] select-none"
+                      draggable={false}
+                    />
+                  </div>
+                </Link>
             
-              {/* Fixed logo box prevents layout shift */}
+              {/* Fixed logo box prevents layout shift
                 <div className="h-12 md:h-14 w-[240px] md:w-[300px] overflow-hidden translate-y-[2px] md:translate-y-[3px]">
                 <img
                   src={stratumLogo}
@@ -64,8 +73,8 @@ export default function NavBar() {
                   className="h-full w-full object-cover object-left drop-shadow-[0_8px_20px_rgba(0,0,0,0.45)] select-none"
                   draggable={false}
                 />
-              </div>
-            </Link>
+              </div> */}
+            
           </div>
 
           {/* CENTER: Desktop nav (TRULY centered) */}
